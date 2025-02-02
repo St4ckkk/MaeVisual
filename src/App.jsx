@@ -1,23 +1,24 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import RootLayout from './layouts/RootLayout';
-import HomePage from './pages/HomePage';
-import BookingPage from './pages/BookingPage';
-import PortfolioPage from './pages/PortfolioPage';
-import ContactPage from './pages/ContactPage';
+import Hero from './pages/Hero';
 
-function App() {
+const Services = () => <div className="pt-20">Services Page</div>;
+const Studios = () => <div className="pt-20">Studios Page</div>;
+const Contact = () => <div className="pt-20">Contact Page</div>;
+
+const App = () => {
   return (
     <Router>
-      <RootLayout>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/booking" element={<BookingPage />} />
-          <Route path="/portfolio" element={<PortfolioPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-        </Routes>
-      </RootLayout>
+      <Routes>
+        <Route element={<RootLayout />}>
+          <Route path="/" element={<Hero />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/studios" element={<Studios />} />
+          <Route path="/contact" element={<Contact />} />
+        </Route>
+      </Routes>
     </Router>
   );
-}
+};
 
 export default App;
