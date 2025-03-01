@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --dark-green: #1a2a25;
+  --cream: #e9d5c5;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--dark-green);
+  color: white;
+}
+
+.bg-dark-green {
+  background-color: var(--dark-green);
+}
+
+.text-dark-green {
+  color: var(--dark-green);
+}
+
+.bg-cream {
+  background-color: var(--cream);
+}
+
+.text-cream {
+  color: var(--cream);
+}
+
+.font-serif {
+  font-family: 'Times New Roman', Times, serif;
+}
