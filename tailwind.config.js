@@ -48,7 +48,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        serif: ['"Times New Roman"', "Times", "serif"],
+        gallient: ['Gallient', 'serif'],
+        roboto: ['Roboto', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",

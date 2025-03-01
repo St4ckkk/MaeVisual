@@ -9,7 +9,7 @@ const Navbar = () => {
         <nav className="flex justify-between items-center py-6 px-8 md:px-16 bg-transparent text-white relative z-10">
             {/* Logo */}
             <div className="flex items-center">
-                <span className="text-2xl font-light italic font-serif">Samantha Jo</span>
+                <span className="font-gallient text-2xl font-light">MaeVisual</span>
             </div>
 
             {/* Desktop Menu Items */}
@@ -26,7 +26,7 @@ const Navbar = () => {
                 </li>
                 <li>
                     <a href="#" className="hover:text-[#e9d5c5] transition-colors font-medium">
-                        STUDIOS
+                        GALLERY
                     </a>
                 </li>
                 <li>

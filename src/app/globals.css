@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Galient&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -36,4 +37,13 @@ body {
 
 .font-serif {
   font-family: 'Times New Roman', Times, serif;
+}
+
+@font-face {
+  font-family: 'Gallient';
+  src: url('../assets/fonts/Gallient.ttf') format('truetype');
+}
+
+h1 {
+  font-family: 'Gallient', sans-serif;
 }

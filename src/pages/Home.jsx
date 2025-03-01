@@ -25,19 +25,9 @@ const Home = () => {
             <main className="flex flex-col items-center justify-center min-h-[calc(100vh-80px)] px-4">
                 <div className="text-center max-w-4xl mx-auto">
                     <Hero />
-
-                    <div className="flex justify-center space-x-4 mt-8">
-                        <button className="px-6 py-3 bg-[#e9d5c5] text-dark-green rounded-full hover:bg-white transition-colors font-medium">
-                            BOOK A SESSION
-                        </button>
-                        <button className="px-6 py-3 border border-white text-white rounded-full hover:bg-white hover:text-dark-green transition-colors flex items-center font-medium">
-                            EXPLORE
-                            <span className="ml-2">———&gt;</span>
-                        </button>
-                    </div>
                 </div>
 
-               
+
             </main>
 
             <SocialSidebar />
