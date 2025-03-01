@@ -1,5 +1,5 @@
 .camera2-size {
-  width: 80%; /* Adjust the width as needed */
+  width: 75%; /* Adjust the width as needed */
   height: auto;
   position: absolute;
   top: 5em;
@@ -8,7 +8,7 @@
 }
 
 .camera3-size {
-  width: 80%; /* Adjust the width as needed */
+  width: 75%; /* Adjust the width as needed */
   height: auto;
   position: absolute;
   top: 5em;
