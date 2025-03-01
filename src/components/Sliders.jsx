@@ -1,10 +1,13 @@
 import { useState } from "react";
-import cameraLens from "../assets/images/camera.png"; // Ensure this path matches your project structure
+import camera1 from "../assets/images/camera.png";
+import camera2 from "../assets/images/camera2.png";
+import camera3 from "../assets/images/camera3.png";
+import "./Sliders.css"; // Import the CSS file
 
 const Sliders = () => {
   const [currentSlide, setCurrentSlide] = useState(1);
   const totalSlides = 3;
-  const images = [cameraLens, cameraLens, cameraLens]; // Replace with actual images for each slide
+  const images = [camera1, camera2, camera3];
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev === totalSlides ? 1 : prev + 1));
@@ -16,69 +19,72 @@ const Sliders = () => {
 
   return (
     <div className="relative w-full h-screen">
-      {/* Image Container with Navigation Buttons */}
+      {/* Image Container */}
       <div className="absolute top-[48%] left-1/2 transform -translate-x-1/2 -translate-y-1/3 w-[120%] max-w-5xl">
         <img
           src={images[currentSlide - 1] || "/placeholder.svg"}
           alt={`Slide ${currentSlide}`}
-          className="w-full h-full object-contain"
+          className={`w-full h-full object-cover ${currentSlide === 2 ? "camera2-size" : ""} ${currentSlide === 3 ? "camera3-size" : ""}`}
           onError={(e) => {
             e.target.onerror = null;
             e.target.src = "/placeholder.svg?height=600&width=800";
           }}
         />
-        {/* Navigation Buttons Inside Image Container */}
-        <div className="absolute top-1/2  left-0 right-0 flex justify-between transform -translate-y-[-2em]">
-          <button
-            onClick={prevSlide}
-            className="w-10 h-10 rounded-full bg-[#c4bfb6] bg-opacity-70 flex items-center justify-center hover:bg-opacity-90 transition-all ml-[-4em]"
-          >
-            <svg
-              className="w-5 h-5 text-gray-500"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="3"
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-          </button>
-          <button
-            onClick={nextSlide}
-            className="w-10 h-10 rounded-full bg-[#c4bfb6] bg-opacity-70 flex items-center justify-center hover:bg-opacity-90 transition-all mr-[-5em]"
-          >
-            <svg
-              className="w-5 h-5 text-gray-500"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="3"
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </button>
-        </div>
       </div>
 
-      {/* Progress Indicator - Unchanged */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
-        <div className="font-gallient text-white text-lg tracking-wider font-semibold">
-          {currentSlide} <span className="text-gray-400">/ {totalSlides}</span>
+      {/* Navigation Buttons */}
+      <div className="absolute top-1/2 left-0 right-0 flex justify-between transform -translate-y-2/2 mt-[6em]">
+        <button
+          onClick={prevSlide}
+          className="w-10 h-10 rounded-full bg-white bg-opacity-70 flex items-center justify-center hover:bg-opacity-90 transition-all ml-[-6em]"
+        >
+          <svg
+            className="w-5 h-5 text-gray-500"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="3"
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+        </button>
+        <button
+          onClick={nextSlide}
+          className="w-10 h-10 rounded-full bg-white bg-opacity-70 flex items-center justify-center hover:bg-opacity-90 transition-all mr-[-8em]"
+        >
+          <svg
+            className="w-5 h-5 text-gray-500"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="3"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </button>
+      </div>
+
+      {/* Progress Indicator */}
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+        <div className="font-gallient text-white tracking-wider font-semibold">
+          <span className="text-4xl font-normal">{currentSlide}</span>
+          <span className="text-gray-400"> / {totalSlides}</span>
         </div>
         <div className="flex space-x-2 mt-2">
           {[...Array(totalSlides)].map((_, i) => (
             <div
               key={i}
-              className={`h-[2px] w-20 rounded-full transition-all ${i + 1 === currentSlide ? "bg-white" : "bg-gray-700"
+              className={`transition-all transform ${i + 1 === currentSlide ? "h-[10px] w-24 bg-white text-2xl scale-y-100" : "h-[8px] w-20 bg-gray-700 text-sm scale-y-50"
                 }`}
+              style={{ transformOrigin: 'bottom' }}
             ></div>
           ))}
         </div>

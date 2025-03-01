@@ -1,39 +1,33 @@
-"use client"
-
-import { useState } from "react"
+import { useState } from "react";
+import logo from "../assets/images/logo2.png";
 
 const Navbar = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [activeItem, setActiveItem] = useState("HOME");
+
+    const handleItemClick = (item) => {
+        setActiveItem(item);
+    };
 
     return (
-        <nav className="flex justify-between items-center py-6 px-8 md:px-16 bg-transparent text-white relative z-10">
+        <nav className="flex justify-between items-center py-2 px-10 md:px-[10%] bg-transparent text-white relative z-10">
             {/* Logo */}
             <div className="flex items-center">
-                <span className="font-gallient text-2xl font-light">MaeVisual</span>
+                <img src={logo} alt="MaeVisual Logo" className="h-32 w-32" />
             </div>
-
             {/* Desktop Menu Items */}
-            <ul className="hidden md:flex space-x-10">
-                <li>
-                    <a href="#" className="hover:text-[#e9d5c5] transition-colors font-medium">
-                        HOME
-                    </a>
-                </li>
-                <li>
-                    <a href="#" className="hover:text-[#e9d5c5] transition-colors font-medium">
-                        SERVICES
-                    </a>
-                </li>
-                <li>
-                    <a href="#" className="hover:text-[#e9d5c5] transition-colors font-medium">
-                        GALLERY
-                    </a>
-                </li>
-                <li>
-                    <a href="#" className="hover:text-[#e9d5c5] transition-colors font-medium">
-                        CONTACT
-                    </a>
-                </li>
+            <ul className="hidden md:flex space-x-8 ml-[-7%]">
+                {["HOME", "SERVICES", "GALLERY", "CONTACT"].map((item) => (
+                    <li key={item}>
+                        <a
+                            href="#"
+                            className={`transition-colors font-medium text-sm ${activeItem === item ? "text-[#DFB388]" : "hover:text-[#e9d5c5]"}`}
+                            onClick={() => handleItemClick(item)}
+                        >
+                            {item}
+                        </a>
+                    </li>
+                ))}
             </ul>
 
             {/* Mobile Menu Icon */}
@@ -63,32 +57,22 @@ const Navbar = () => {
             {isMenuOpen && (
                 <div className="absolute top-full left-0 right-0 bg-dark-green p-4 md:hidden">
                     <ul className="flex flex-col space-y-4">
-                        <li>
-                            <a href="#" className="block py-2 hover:text-[#e9d5c5]">
-                                HOME
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" className="block py-2 hover:text-[#e9d5c5]">
-                                SERVICES
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" className="block py-2 hover:text-[#e9d5c5]">
-                                STUDIOS
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" className="block py-2 hover:text-[#e9d5c5]">
-                                CONTACT
-                            </a>
-                        </li>
+                        {["HOME", "SERVICES", "STUDIOS", "CONTACT"].map((item) => (
+                            <li key={item}>
+                                <a
+                                    href="#"
+                                    className={`block py-2 text-sm ${activeItem === item ? "text-[#DFB388]" : "hover:text-[#e9d5c5]"}`}
+                                    onClick={() => handleItemClick(item)}
+                                >
+                                    {item}
+                                </a>
+                            </li>
+                        ))}
                     </ul>
                 </div>
             )}
         </nav>
-    )
-}
+    );
+};
 
-export default Navbar
-
+export default Navbar;

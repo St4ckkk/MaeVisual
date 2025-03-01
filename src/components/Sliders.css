@@ -1,0 +1,17 @@
+.camera2-size {
+  width: 80%; /* Adjust the width as needed */
+  height: auto;
+  position: absolute;
+  top: 5em;
+  left: 50%;
+  transform: translate(-50%, -33%);
+}
+
+.camera3-size {
+  width: 80%; /* Adjust the width as needed */
+  height: auto;
+  position: absolute;
+  top: 5em;
+  left: 50%;
+  transform: translate(-50%, -33%);
+}
