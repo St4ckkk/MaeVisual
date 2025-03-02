@@ -17,12 +17,19 @@ const Home = () => {
         handleResize()
         window.addEventListener("resize", handleResize)
 
-        return () => window.removeEventListener("resize", handleResize)
+        // Disable scrolling when component mounts
+        document.body.style.overflow = 'hidden'
+
+        return () => {
+            window.removeEventListener("resize", handleResize)
+            // Re-enable scrolling when component unmounts
+            document.body.style.overflow = 'auto'
+        }
     }, [])
 
     return (
         <div
-            className="relative min-h-screen overflow-hidden"
+            className="relative h-screen max-h-screen overflow-hidden"
             style={{
                 backgroundImage: `url(${backgroundImage})`,
                 backgroundSize: "cover",
@@ -32,7 +39,7 @@ const Home = () => {
         >
             <Navbar />
 
-            <main className="flex flex-col items-center justify-center min-h-[calc(100vh-80px)] px-4">
+            <main className="flex flex-col items-center justify-center h-[calc(100vh-80px)] px-4">
                 <div className="text-center max-w-4xl mx-auto">
                     <Hero />
                 </div>
@@ -44,4 +51,3 @@ const Home = () => {
 }
 
 export default Home
-

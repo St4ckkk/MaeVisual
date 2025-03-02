@@ -21,8 +21,8 @@ const Sliders = () => {
     <div className="relative w-full h-screen">
       {/* Image Container */}
       <div className={`absolute left-1/2 transform -translate-x-1/2 w-[100%] max-w-5xl ${currentSlide === 1
-        ? "camera1-container"
-        : "top-[52%] -translate-y-1/3"
+          ? "camera1-container"
+          : "top-[52%] -translate-y-1/3"
         }`}>
         <img
           src={images[currentSlide - 1] || "/placeholder.svg"}
