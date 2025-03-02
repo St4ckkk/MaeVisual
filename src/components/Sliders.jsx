@@ -24,7 +24,9 @@ const Sliders = () => {
         <img
           src={images[currentSlide - 1] || "/placeholder.svg"}
           alt={`Slide ${currentSlide}`}
-          className={`w-full h-full object-cover ${currentSlide === 2 ? "camera2-size" : ""} ${currentSlide === 3 ? "camera3-size" : ""}`}
+          className={`w-full h-full object-cover ${currentSlide === 1 ? "md:w-full w-[90%] mx-auto" : ""
+            } ${currentSlide === 2 ? "camera2-size" : ""} ${currentSlide === 3 ? "camera3-size" : ""
+            }`}
           onError={(e) => {
             e.target.onerror = null;
             e.target.src = "/placeholder.svg?height=600&width=800";
@@ -54,7 +56,7 @@ const Sliders = () => {
         </button>
         <button
           onClick={nextSlide}
-          className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white bg-opacity-70 flex items-center justify-center hover:bg-opacity-90 transition-all md:mr-[-8em] mr-[-3em]"
+          className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-white bg-opacity-70 flex items-center justify-center hover:bg-opacity-90 transition-all md:mr-[-8em] mr-[-2em]"
         >
           <svg
             className="w-4 h-4 md:w-5 md:h-5 text-gray-500"
