@@ -4,9 +4,9 @@ const SocialSidebar = () => {
     return (
         <>
             {/* Desktop version */}
-            <div className="fixed left-[2%] sm:left-[5%] md:left-[8%] top-0 h-full w-14 hidden sm:flex flex-col items-center justify-end pb-6 z-10">
+            <div className="fixed left-[2%] sm:left-[5%] md:left-[10%] top-0 h-full w-14 hidden sm:flex flex-col items-center justify-end pb-6 z-10">
                 {/* Vertical Line */}
-                <div className="absolute left-1/2 top-0 bottom-[18%] w-[1px] bg-white"></div>
+                <div className="absolute left-1/2 top-0 bottom-[20%] w-[1px] bg-white"></div>
 
                 {/* Social Icons */}
                 <div className="flex flex-col space-y-6">
