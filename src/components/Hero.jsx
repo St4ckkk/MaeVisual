@@ -6,7 +6,7 @@ import Sliders from "./Sliders";
 
 const Hero = () => {
     return (
-        <section className="relative flex flex-col items-center justify-start pt-2 md:pt-2 pt-10 min-h-screen text-center text-white overflow-visible">
+        <section className="relative flex flex-col items-center justify-start pt-2 md:pt-0 min-h-screen text-center text-white overflow-visible">
             <div className="z-10 mb-16 mt-8 md:mt-0">
                 <h3 className="text-1xl md:text-2xl font-semibold tracking-wide m-0 mb-[-10px]">
                     CREATING MORE THAN JUST

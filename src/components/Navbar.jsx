@@ -23,7 +23,7 @@ const Navbar = () => {
                 />
             </div>
             {/* Desktop Menu Items */}
-            <ul className="hidden md:flex space-x-4 lg:space-x-8">
+            <ul className="hidden md:flex space-x-4 lg:space-x-8 mr-[6em]">
                 {["HOME", "SERVICES", "GALLERY", "CONTACT"].map((item) => (
                     <li key={item}>
                         <a
