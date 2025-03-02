@@ -16,11 +16,28 @@
   transform: translate(-50%, -33%);
 }
 
+/* Camera 1 positioning and sizing */
+.camera1-container {
+  top: 45%;
+  transform: translateX(-50%) translateY(-33.33%);
+}
+
+.camera1-image {
+  width: 80%;
+  margin: ;
+}
+
 @media (max-width: 767px) {
   .camera2-size {
     top: 2em;
   }
+  .camera1-container {
+    top: 52%;
+  }
 
+  .camera1-image {
+    width: 90%;
+  }
   .camera3-size {
     top: 2em;
   }
