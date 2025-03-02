@@ -20,11 +20,15 @@ const Sliders = () => {
   return (
     <div className="relative w-full h-screen">
       {/* Image Container */}
-      <div className="absolute top-[52%] left-1/2 transform -translate-x-1/2 -translate-y-1/3 w-[100%] max-w-5xl">
+      {/* Image Container */}
+      <div className={`absolute left-1/2 transform -translate-x-1/2 w-[100%] max-w-5xl ${currentSlide === 1
+        ? "top-[53%] left-[50%] md:top-[52%] -translate-y-1/3"
+        : "top-[52%] -translate-y-1/3"
+        }`}>
         <img
           src={images[currentSlide - 1] || "/placeholder.svg"}
           alt={`Slide ${currentSlide}`}
-          className={`w-full h-full object-cover ${currentSlide === 1 ? "md:w-full w-[90%] mx-auto" : ""
+          className={`w-full h-full object-cover ${currentSlide === 1 ? "md:w-full w-[85%] mx-auto" : ""
             } ${currentSlide === 2 ? "camera2-size" : ""} ${currentSlide === 3 ? "camera3-size" : ""
             }`}
           onError={(e) => {
