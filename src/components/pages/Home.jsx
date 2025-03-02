@@ -25,7 +25,7 @@ const Home = () => {
             className="relative min-h-screen overflow-hidden"
             style={{
                 backgroundImage: `url(${backgroundImage})`,
-                backgroundSize: isMobile ? "100% auto" : "cover",
+                backgroundSize: "cover",
                 backgroundPosition: isMobile ? "center center" : "center",
                 backgroundAttachment: "fixed",
             }}
