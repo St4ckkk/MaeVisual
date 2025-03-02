@@ -8,10 +8,20 @@
 }
 
 .camera3-size {
-  width: 75%; /* Adjust the width as needed */
+  width: 75%;
   height: auto;
   position: absolute;
   top: 5em;
   left: 50%;
   transform: translate(-50%, -33%);
+}
+
+@media (max-width: 767px) {
+  .camera2-size {
+    top: 2em;
+  }
+
+  .camera3-size {
+    top: 2em;
+  }
 }

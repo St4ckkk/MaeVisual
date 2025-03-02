@@ -1,22 +1,29 @@
-import { useState } from "react";
-import logo from "../assets/images/logo2.png";
+"use client"
+
+import { useState } from "react"
+import logo from "../assets/images/logo2.png"
 
 const Navbar = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [activeItem, setActiveItem] = useState("HOME");
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const [activeItem, setActiveItem] = useState("HOME")
 
     const handleItemClick = (item) => {
-        setActiveItem(item);
-    };
+        setActiveItem(item)
+        setIsMenuOpen(false)
+    }
 
     return (
-        <nav className="flex justify-between items-center py-2 px-10 md:px-[10%] bg-transparent text-white relative z-10">
+        <nav className="flex justify-between items-center py-2 px-4 sm:px-6 md:px-10 bg-transparent text-white relative z-0">
             {/* Logo */}
             <div className="flex items-center">
-                <img src={logo} alt="MaeVisual Logo" className="h-32 w-32" />
+                <img
+                    src={logo || "/placeholder.svg"}
+                    alt="MaeVisual Logo"
+                    className="h-16 w-16 sm:h-24 sm:w-24 md:h-32 md:w-32"
+                />
             </div>
             {/* Desktop Menu Items */}
-            <ul className="hidden md:flex space-x-8 ml-[-7%]">
+            <ul className="hidden md:flex space-x-4 lg:space-x-8">
                 {["HOME", "SERVICES", "GALLERY", "CONTACT"].map((item) => (
                     <li key={item}>
                         <a
@@ -44,7 +51,7 @@ const Navbar = () => {
                 </button>
             </div>
 
-            {/* Hamburger Menu */}
+            {/* Hamburger Menu (Desktop) */}
             <div className="hidden md:block">
                 <button className="focus:outline-none">
                     <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -57,7 +64,7 @@ const Navbar = () => {
             {isMenuOpen && (
                 <div className="absolute top-full left-0 right-0 bg-dark-green p-4 md:hidden">
                     <ul className="flex flex-col space-y-4">
-                        {["HOME", "SERVICES", "STUDIOS", "CONTACT"].map((item) => (
+                        {["HOME", "SERVICES", "GALLERY", "CONTACT"].map((item) => (
                             <li key={item}>
                                 <a
                                     href="#"
@@ -72,7 +79,8 @@ const Navbar = () => {
                 </div>
             )}
         </nav>
-    );
-};
+    )
+}
 
-export default Navbar;
+export default Navbar
+
