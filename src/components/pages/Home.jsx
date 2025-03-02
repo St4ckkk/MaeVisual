@@ -1,10 +1,10 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import Navbar from "../components/Navbar"
-import Hero from "../components/Hero"
-import SocialSidebar from "../components/SocialSidebar"
-import backgroundImage from "../assets/images/bg-mae.png"
+import Navbar from "../Navbar"
+import Hero from "../Hero"
+import SocialSidebar from "../SocialSidebar"
+import backgroundImage from "../../assets/images/bg-mae.png"
 
 const Home = () => {
     const [isMobile, setIsMobile] = useState(false)
@@ -25,7 +25,7 @@ const Home = () => {
             className="relative min-h-screen overflow-hidden"
             style={{
                 backgroundImage: `url(${backgroundImage})`,
-                backgroundSize: "cover",
+                backgroundSize: isMobile ? "100% auto" : "cover",
                 backgroundPosition: isMobile ? "center center" : "center",
                 backgroundAttachment: "fixed",
             }}
