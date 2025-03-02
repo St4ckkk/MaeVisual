@@ -18,7 +18,7 @@
 
 /* Camera 1 positioning and sizing */
 .camera1-container {
-  top: 45%;
+  top: 52%;
   transform: translateX(-50%) translateY(-33.33%);
 }
 
