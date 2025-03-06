@@ -1,7 +1,7 @@
-"use client"
+
 
 import { useState } from "react"
-import logo from "../assets/images/logo2.png"
+import logo from "../../public/images/logo2.png"
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)

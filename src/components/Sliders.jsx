@@ -1,7 +1,7 @@
 import { useState } from "react";
-import camera1 from "../assets/images/camera.png";
-import camera2 from "../assets/images/camera2.png";
-import camera3 from "../assets/images/camera3.png";
+import camera1 from "../../public/images/camera.png";
+import camera2 from "../../public/images/camera2.png";
+import camera3 from "../../public/images/camera3.png";
 import "../app/Sliders.css"; // Import the CSS file
 
 const Sliders = () => {
@@ -21,8 +21,8 @@ const Sliders = () => {
     <div className="relative w-full h-screen">
       {/* Image Container */}
       <div className={`absolute left-1/2 transform -translate-x-1/2 w-[100%] max-w-5xl ${currentSlide === 1
-          ? "camera1-container"
-          : "top-[52%] -translate-y-1/3"
+        ? "camera1-container"
+        : "top-[52%] -translate-y-1/3"
         }`}>
         <img
           src={images[currentSlide - 1] || "/placeholder.svg"}
