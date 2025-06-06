@@ -58,7 +58,7 @@ const Home = () => {
 
     return (
         <motion.div
-            className="w-full overflow-hidden bg-cover bg-center bg-fixed"
+            className="w-full min-h-screen overflow-hidden bg-cover bg-center bg-fixed"
             style={{
                 backgroundImage: "url('./images/bg-mae.png')"
             }}
@@ -68,20 +68,20 @@ const Home = () => {
         >
             <Navbar />
             <motion.div 
-                className="flex flex-col items-center justify-start pt-2 md:pt-0 min-h-screen text-center text-white overflow-visible"
+                className="flex flex-col items-center justify-start px-4 sm:px-6 md:px-8 pt-16 sm:pt-24 md:pt-28 min-h-[calc(100vh-120px)] text-center text-white overflow-visible"
                 variants={pageVariants}
                 initial="hidden"
                 animate="visible"
             >
-                <div className="z-10 mb-16 mt-8 md:mt-0">
+                <div className="z-10 mb-12 sm:mb-16">
                     <motion.h3 
-                        className="primary text-1xl md:text-2xl font-semibold tracking-wide m-0 mb-[-10px]"
+                        className="primary text-sm sm:text-xl md:text-2xl font-semibold tracking-wide m-0 mb-[-5px] sm:mb-[-8px] md:mb-[-10px]"
                         variants={textVariants}
                     >
                         CREATING MORE THAN JUST
                     </motion.h3>
                     <motion.h1 
-                        className="font-secondary text-8xl md:text-[8rem] italic font-light tracking-wide m-0"
+                        className="font-secondary text-5xl sm:text-6xl md:text-8xl lg:text-[8rem] italic font-light tracking-wide m-0"
                         variants={memoriesVariants}
                         whileHover={{ 
                             scale: 1.05,
@@ -92,13 +92,14 @@ const Home = () => {
                         memories
                     </motion.h1>
                     <motion.div
+                        className="mt-6 sm:mt-8"
                         variants={textVariants}
                     >
                         <Buttons />
                     </motion.div>
                 </div>
             </motion.div>
-            <SocialSidebar />
+            <SocialSidebar className="hidden sm:block" />
             <Footer />
         </motion.div>
     )

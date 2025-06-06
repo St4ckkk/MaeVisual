@@ -81,8 +81,8 @@ const Navbar = () => {
                     <ul className="flex flex-col space-y-4">
                         {[
                             { name: "HOME", path: "/" },
+                            { name: "ABOUT", path: "/about" },
                             { name: "SERVICES", path: "/services" },
-                            { name: "GALLERY", path: "/gallery" },
                             { name: "CONTACT", path: "/contact" }
                         ].map((item) => (
                             <li key={item.name}>
