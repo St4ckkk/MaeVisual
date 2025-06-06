@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Camera, Palette, Mountain, Edit2, Star } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import Card from './Card';
 
 const Profile = () => {
     const [isCardOpen, setIsCardOpen] = useState(false);
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+    const scrollContainerRef = useRef(null);
+    const controls = useAnimation();
 
     const skills = [
         { name: "Portrait Photography", icon: Camera },
@@ -23,6 +25,32 @@ const Profile = () => {
         { src: "/images/h4.png", week: "74", alt: "Portfolio highlight 4" },
         { src: "/images/h5.png", week: "45", alt: "Portfolio highlight 5" }
     ];
+
+    // Auto-scrolling effect for the portfolio highlights
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (scrollContainerRef.current) {
+                const container = scrollContainerRef.current;
+                const isAtEnd = container.scrollLeft + container.clientWidth >= container.scrollWidth - 20;
+
+                if (isAtEnd) {
+                    // Smoothly scroll back to the beginning
+                    container.scrollTo({
+                        left: 0,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    // Continue scrolling right
+                    container.scrollBy({
+                        left: 60,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        }, 3000);
+
+        return () => clearInterval(interval);
+    }, []);
 
     // Animation variants
     const containerVariants = {
@@ -173,34 +201,82 @@ const Profile = () => {
                     </div>
                 </div>
 
-                {/* Portfolio Highlights - now clickable to open Card */}
-                <div className="flex justify-center gap-3 sm:gap-5 md:gap-8 overflow-x-auto pb-4 sm:pb-6 mt-6 sm:mt-8">
-                    {portfolioImages.map((image, index) => (
-                        <motion.div
-                            key={index}
-                            className="flex-shrink-0"
-                            custom={index}
-                            variants={portfolioVariants}
-                            whileHover={{
-                                scale: 1.1,
-                                transition: { duration: 0.2 }
-                            }}
-                            onClick={() => {
-                                setSelectedImageIndex(index);
-                                setIsCardOpen(true);
-                            }}
-                        >
-                            <div className="cursor-pointer w-16 h-16 sm:w-24 sm:h-24 md:w-30 md:h-30 rounded-full overflow-hidden border-2 border-gray-700">
-                                <img
-                                    src={image.src}
-                                    alt={image.alt}
-                                    width={100}
-                                    height={100}
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
-                        </motion.div>
-                    ))}
+                {/* Portfolio Highlights - Enhanced with auto-scrolling */}
+                <div className="relative w-full mt-6 sm:mt-8 mb-4">
+                    <div
+                        ref={scrollContainerRef}
+                        className="w-full flex justify-start items-center gap-3 sm:gap-5 md:gap-8 overflow-x-auto scrollbar-hide pb-4 sm:pb-6 px-2"
+                        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                    >
+                        {/* Duplicate images at the beginning for seamless looping */}
+                        {portfolioImages.map((image, index) => (
+                            <motion.div
+                                key={index}
+                                className="flex-shrink-0"
+                                custom={index}
+                                variants={portfolioVariants}
+                                whileHover={{
+                                    scale: 1.1,
+                                    transition: { duration: 0.2 }
+                                }}
+                                onClick={() => {
+                                    setSelectedImageIndex(index);
+                                    setIsCardOpen(true);
+                                }}
+                            >
+                                <div className="cursor-pointer w-14 h-14 xs:w-16 xs:h-16 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden border-2 border-gray-700 shadow-md hover:shadow-lg hover:border-gray-500 transition-all">
+                                    <img
+                                        src={image.src}
+                                        alt={image.alt}
+                                        width={128}
+                                        height={128}
+                                        className="w-full h-full object-cover"
+                                        loading="lazy"
+                                    />
+                                </div>
+                            </motion.div>
+                        ))}
+
+                        {/* Duplicate first few images to create illusion of infinity */}
+                        {portfolioImages.slice(0, 3).map((image, index) => (
+                            <motion.div
+                                key={`duplicate-${index}`}
+                                className="flex-shrink-0"
+                                custom={index + portfolioImages.length}
+                                variants={portfolioVariants}
+                                whileHover={{
+                                    scale: 1.1,
+                                    transition: { duration: 0.2 }
+                                }}
+                                onClick={() => {
+                                    setSelectedImageIndex(index);
+                                    setIsCardOpen(true);
+                                }}
+                            >
+                                <div className="cursor-pointer w-14 h-14 xs:w-16 xs:h-16 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden border-2 border-gray-700 shadow-md hover:shadow-lg hover:border-gray-500 transition-all">
+                                    <img
+                                        src={image.src}
+                                        alt={image.alt}
+                                        width={128}
+                                        height={128}
+                                        className="w-full h-full object-cover"
+                                        loading="lazy"
+                                    />
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+
+                    {/* Add custom CSS to hide scrollbar */}
+                    <style>{`
+                        .scrollbar-hide::-webkit-scrollbar {
+                            display: none;
+                        }
+                        .scrollbar-hide {
+                            -ms-overflow-style: none;
+                            scrollbar-width: none;
+                        }
+                    `}</style>
                 </div>
             </div>
 
