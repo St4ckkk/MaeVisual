@@ -1,13 +1,13 @@
 import { useState, useRef, useEffect } from 'react';
 import { Camera, Palette, Mountain, Edit2, Star } from 'lucide-react';
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Card from './Card';
 
 const Profile = () => {
     const [isCardOpen, setIsCardOpen] = useState(false);
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);
     const scrollContainerRef = useRef(null);
-    const controls = useAnimation();
+    // const controls = useAnimation();
 
     const skills = [
         { name: "Portrait Photography", icon: Camera },

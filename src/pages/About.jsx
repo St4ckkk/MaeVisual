@@ -1,10 +1,10 @@
 import Navbar from "../components/Navbar"
 import Profile from "../components/Profile"
-
+import Footer from "../components/Footer"
 const About = () => {
     return (
         <div
-            className="w-full min-h-screen overflow-auto bg-cover bg-center bg-fixed"
+            className="w-full max-h-screen overflow-auto bg-cover bg-center bg-fixed"
             style={{
                 backgroundImage: "url('/images/bg-mae.png')"
             }}
@@ -13,6 +13,7 @@ const About = () => {
             <div className="container mx-auto flex justify-center items-center">
                 <Profile />
             </div>
+            <Footer />
         </div>
     )
 }
