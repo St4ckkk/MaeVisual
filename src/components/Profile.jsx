@@ -123,8 +123,7 @@ const AboutMe = () => {
                                 />
                             </motion.div>
                         </motion.div>
-
-                        {/* Action Buttons - Now side by side */}
+                        {/* Action Buttons */}
                         <div className="flex w-full gap-2">
                             <motion.button
                                 className="flex-1 bg-gray-800 text-white py-2 rounded-md text-sm font-semibold"
@@ -133,7 +132,8 @@ const AboutMe = () => {
                                 variants={itemVariants}
                             >
                                 <div className="flex items-center justify-center">
-                                    My Works
+                                    <Image size={14} className="mr-1" />
+                                    <span>My Works</span>
                                 </div>
                             </motion.button>
                             <motion.button
@@ -143,7 +143,8 @@ const AboutMe = () => {
                                 variants={itemVariants}
                             >
                                 <div className="flex items-center justify-center">
-                                    Book a Session
+                                    <Calendar size={14} className="mr-1" />
+                                    <span>Book a Session</span>
                                 </div>
                             </motion.button>
                         </div>
