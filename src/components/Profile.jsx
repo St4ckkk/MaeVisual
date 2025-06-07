@@ -1,27 +1,28 @@
 import { useState, useRef, useEffect } from 'react';
-import { Camera, Palette, Mountain, Edit2, Star, MoreHorizontal, MessageSquare } from 'lucide-react';
+import { Camera, Image, Calendar, Instagram, Star, Award, MessageSquare, Aperture, Users, Gift, GraduationCap, Heart } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Card from './Card';
 
-const Profile = () => {
+const AboutMe = () => {
     const [isCardOpen, setIsCardOpen] = useState(false);
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);
     const scrollContainerRef = useRef(null);
 
-    const skills = [
-        { name: "Portrait Photography", icon: Camera },
-        { name: "Landscape", icon: Mountain },
-        { name: "Digital Editing", icon: Edit2 },
-        { name: "Color Grading", icon: Palette },
-        { name: "Video Editing", icon: Star },
+    const interests = [
+        { name: "Weddings", icon: Heart },
+        { name: "Birthdays", icon: Gift },
+        { name: "Portraits", icon: Users },
+        { name: "Graduations", icon: GraduationCap },
+        { name: "Memorials", icon: Star },
+        { name: "Events", icon: Calendar },
     ];
 
-    const portfolioImages = [
-        { src: "/images/h1.png", week: "68", alt: "Portfolio highlight 1" },
-        { src: "/images/h2.png", week: "126", alt: "Portfolio highlight 2" },
-        { src: "/images/h3.png", week: "99", alt: "Portfolio highlight 3" },
-        { src: "/images/h4.png", week: "74", alt: "Portfolio highlight 4" },
-        { src: "/images/h5.png", week: "45", alt: "Portfolio highlight 5" }
+    const galleryImages = [
+        { src: "/images/h1.png", alt: "Wedding photography" },
+        { src: "/images/h2.png", alt: "Portrait photography" },
+        { src: "/images/h3.png", alt: "Event photography" },
+        { src: "/images/h4.png", alt: "Birthday photography" },
+        { src: "/images/h5.png", alt: "Graduation photography" }
     ];
 
     useEffect(() => {
@@ -64,7 +65,7 @@ const Profile = () => {
         visible: { y: 0, opacity: 1, transition: { duration: 0.5 } }
     };
 
-    const skillVariants = {
+    const interestVariants = {
         hidden: { opacity: 0, scale: 0.8 },
         visible: i => ({
             opacity: 1,
@@ -73,7 +74,7 @@ const Profile = () => {
         })
     };
 
-    const portfolioVariants = {
+    const galleryVariants = {
         hidden: { opacity: 0, x: -20 },
         visible: i => ({
             opacity: 1,
@@ -90,12 +91,12 @@ const Profile = () => {
             variants={containerVariants}
         >
             <div className="w-full max-w-3xl mx-auto">
-                {/* Instagram-style Header */}
+                {/* Header */}
                 <div className="flex items-center justify-between p-4 border-b border-gray-800">
-                    <h1 className="text-xl font-normal">maenibini</h1>
+                    <h1 className="text-xl font-normal">About Me</h1>
                 </div>
 
-                {/* Profile Header - Instagram Style */}
+                {/* Profile Header */}
                 <div className="flex px-4 py-5">
                     {/* Profile Picture */}
                     <motion.div
@@ -116,22 +117,22 @@ const Profile = () => {
                         </motion.div>
                     </motion.div>
 
-                    {/* Stats */}
+                    {/* Personal Details */}
                     <motion.div
                         className="flex items-center justify-around flex-1"
                         variants={itemVariants}
                     >
                         <div className="text-center">
-                            <div className="text-lg font-semibold">15+</div>
-                            <div className="text-xs text-gray-400">projects</div>
+                            <div className="text-lg font-semibold">Freelance Photographer</div>
+                            <div className="text-xs text-gray-400">profession</div>
                         </div>
                         <div className="text-center">
-                            <div className="text-lg font-semibold">7</div>
+                            <div className="text-lg font-semibold">8+</div>
                             <div className="text-xs text-gray-400">years exp.</div>
                         </div>
                         <div className="text-center">
-                            <div className="text-lg font-semibold">100+</div>
-                            <div className="text-xs text-gray-400">clients</div>
+                            <div className="text-lg font-semibold">South Cotabato, Philippines</div>
+                            <div className="text-xs text-gray-400">location</div>
                         </div>
                     </motion.div>
                 </div>
@@ -142,9 +143,9 @@ const Profile = () => {
                         className="mb-3"
                         variants={itemVariants}
                     >
-                        <div className="font-medium">Mae</div>
-                        <div className="text-gray-400 text-sm">Photographer</div>
-                        <div className="text-sm mt-1">🧿 Memory Hoarder</div>
+                        <div className="font-medium">Mae Shara Mohammad</div>
+                        <div className="text-gray-400 text-sm">Freelance Photographer</div>
+                        <div className="text-sm mt-2">I TAKE PHOTOS AS A RETURN TICKET TO A MOMENT</div>
                     </motion.div>
                     {/* Action Buttons */}
                     <div className="flex gap-2 mb-4">
@@ -154,7 +155,10 @@ const Profile = () => {
                             whileTap={{ scale: 0.98 }}
                             variants={itemVariants}
                         >
-                            Follow Me
+                            <div className="flex items-center justify-center">
+                                <Aperture size={16} className="mr-2" />
+                                My Work
+                            </div>
                         </motion.button>
                         <motion.button
                             className="flex-1 bg-gray-800 text-white py-2 rounded-md text-sm font-semibold"
@@ -162,24 +166,27 @@ const Profile = () => {
                             whileTap={{ scale: 0.98 }}
                             variants={itemVariants}
                         >
-                            Hire Me
+                            <div className="flex items-center justify-center">
+                                <MessageSquare size={16} className="mr-2" />
+                                Contact Me
+                            </div>
                         </motion.button>
                     </div>
                 </div>
 
-                {/* Portfolio Highlights - Story Circles */}
+                {/* Gallery Section */}
                 <div className="border-t border-gray-800">
                     <div
                         ref={scrollContainerRef}
                         className="w-full flex items-center gap-4 overflow-x-auto scrollbar-hide py-4 px-4"
                         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                     >
-                        {portfolioImages.map((image, index) => (
+                        {galleryImages.map((image, index) => (
                             <motion.div
                                 key={index}
                                 className="flex-shrink-0 flex flex-col items-center"
                                 custom={index}
-                                variants={portfolioVariants}
+                                variants={galleryVariants}
                                 whileHover={{ scale: 1.05 }}
                                 onClick={() => {
                                     setSelectedImageIndex(index);
@@ -194,32 +201,33 @@ const Profile = () => {
                                         loading="lazy"
                                     />
                                 </div>
-                                <span className="text-xs mt-1 text-gray-400">Story {index + 1}</span>
+                                <span className="text-xs mt-1 text-gray-400">{image.title}</span>
                             </motion.div>
                         ))}
                     </div>
                 </div>
 
-                {/* Skills Grid - Instagram Post Style */}
-                <div className="border-t border-gray-800 pt-2">
-                    <h3>My Skills</h3>
+                {/* Photography Specialties Grid */}
+                <div className="border-t border-gray-800 p-5">
+                    <h3 className="py-2 text-sm font-medium">My Specialties</h3>
                     <div className="grid grid-cols-3 gap-1">
-                        {skills.map((skill, index) => (
+                        {interests.map((interest, index) => (
                             <motion.div
                                 key={index}
                                 className="aspect-square bg-gray-900 flex items-center justify-center"
                                 custom={index}
-                                variants={skillVariants}
+                                variants={interestVariants}
                                 whileHover={{ opacity: 0.8 }}
                             >
                                 <div className="flex flex-col items-center justify-center">
-                                    <skill.icon size={24} className="text-blue-400 mb-1" />
-                                    <span className="text-xs">{skill.name.split(" ")[0]}</span>
+                                    <interest.icon size={24} className="text-blue-400 mb-1" />
+                                    <span className="text-xs">{interest.name}</span>
                                 </div>
                             </motion.div>
                         ))}
                     </div>
                 </div>
+
 
                 {/* Styles */}
                 <style>{`
@@ -237,11 +245,11 @@ const Profile = () => {
             <Card
                 isOpen={isCardOpen}
                 onClose={() => setIsCardOpen(false)}
-                images={portfolioImages}
+                images={galleryImages}
                 initialImageIndex={selectedImageIndex}
             />
         </motion.div>
     )
 }
 
-export default Profile;
+export default AboutMe;
