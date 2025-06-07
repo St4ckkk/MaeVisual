@@ -161,16 +161,16 @@ const AboutMe = () => {
                         {/* Added experience */}
                         <div className="flex items-center text-gray-400 text-sm mt-1">
                             <Clock size={14} className="mr-1" />
-                            <span>5 years experience</span>
+                            <span>8+ years experience</span>
                         </div>
 
                         {/* Added location */}
                         <div className="flex items-center text-gray-400 text-sm mt-1">
                             <MapPin size={14} className="mr-1" />
-                            <span>California, USA</span>
+                            <span>South Cotabato, PH</span>
                         </div>
 
-                        <div className="text-sm mt-2">Memory Hoarder</div>
+                        <div className="text-sm mt-2">🧿 Memory Hoarder</div>
                         <div className="text-sm mt-1">I TAKE PHOTOS AS A RETURN TICKET TO A MOMENT</div>
                     </motion.div>
                 </div>
