@@ -1,5 +1,3 @@
-
-
 import { useState, useEffect } from "react"
 import { Link, useLocation } from 'react-router-dom';
 
@@ -18,7 +16,7 @@ const Navbar = () => {
         const path = location.pathname;
         if (path === '/') setActiveItem('HOME');
         else if (path === '/about') setActiveItem('ABOUT');
-        else if (path === '/services') setActiveItem('SERVICES');
+        else if (path === '/my-work') setActiveItem('MY WORK'); // Updated path for My Work
         else if (path === '/contact') setActiveItem('CONTACT');
     }, [location])
 
@@ -37,7 +35,7 @@ const Navbar = () => {
                 {[
                     { name: "HOME", path: "/" },
                     { name: "ABOUT", path: "/about" },
-                    { name: "SERVICES", path: "/services" },
+                    { name: "MY WORK", path: "/my-work" }, // Changed from SERVICES to MY WORK
                     { name: "CONTACT", path: "/contact" }
                 ].map((item) => (
                     <li key={item.name}>
@@ -82,7 +80,7 @@ const Navbar = () => {
                         {[
                             { name: "HOME", path: "/" },
                             { name: "ABOUT", path: "/about" },
-                            { name: "SERVICES", path: "/services" },
+                            { name: "MY WORK", path: "/my-work" }, // Changed from SERVICES to MY WORK
                             { name: "CONTACT", path: "/contact" }
                         ].map((item) => (
                             <li key={item.name}>
@@ -103,4 +101,3 @@ const Navbar = () => {
 }
 
 export default Navbar
-
