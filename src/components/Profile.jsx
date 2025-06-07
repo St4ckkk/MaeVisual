@@ -1,5 +1,6 @@
+// filepath: c:\Users\user\Documents\BarkaDevs\client\maevisual\maevisual-frontend\maevisual\src\components\Profile.jsx
 import { useState, useRef } from 'react';
-import { Camera, Image, Calendar, Instagram, Star, Award, MessageSquare, Aperture, Users, Gift, GraduationCap, Heart, MapPin, Clock } from 'lucide-react';
+import { Calendar, Star, Users, Gift, GraduationCap, Heart, MapPin, Clock, Facebook, Instagram, TiktokIcon } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Card from './Card';
 
@@ -22,7 +23,9 @@ const AboutMe = () => {
         { src: "/images/h2.png", alt: "Portrait photography" },
         { src: "/images/h3.png", alt: "Event photography" },
         { src: "/images/h4.png", alt: "Birthday photography" },
-        { src: "/images/h5.png", alt: "Graduation photography" }];
+        { src: "/images/h5.png", alt: "Graduation photography" }
+    ];
+
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -71,12 +74,13 @@ const AboutMe = () => {
                         <motion.div
                             className="mr-6"
                             variants={itemVariants}
-                        ><motion.div
-                            className="w-35 h-35 rounded-full overflow-hidden border border-gray-700"
-                            initial={{ scale: 0.8, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            transition={{ duration: 0.6 }}
                         >
+                            <motion.div
+                                className="w-35 h-35 rounded-full overflow-hidden border border-gray-700"
+                                initial={{ scale: 0.8, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                transition={{ duration: 0.6 }}
+                            >
                                 <img
                                     src="/images/profile.png"
                                     alt="Profile picture"
@@ -85,7 +89,8 @@ const AboutMe = () => {
                             </motion.div>
                         </motion.div>
                         <div className="flex flex-col flex-grow">
-                            <h1 className="text-2xl font-medium">maenibini</h1>                        <div className="flex mt-4 gap-2 md:gap-3">
+                            <h1 className="text-2xl font-medium">maenibini</h1>
+                            <div className="flex mt-4 gap-2 md:gap-3">
                                 <button className="bg-gray-800 text-white px-3 py-1.5 md:px-5 md:py-2 rounded-md text-sm font-medium flex-1">
                                     My Works
                                 </button>
@@ -99,10 +104,12 @@ const AboutMe = () => {
                     {/* Profile Information */}
                     <div className="px-6 mb-8">
                         <div className="md:block">
-                            <motion.div variants={itemVariants}>                            <div className="text-lg font-medium">Mae Shara Mohammad</div>
+                            <motion.div variants={itemVariants}>
+                                <div className="text-lg font-medium">Mae Shara Mohammad</div>
                                 <div className="text-gray-400 text-base">Freelance Photographer</div>
 
-                                {/* Experience and location */}                            <div className="flex items-center text-gray-400 text-sm mt-2">
+                                {/* Experience and location */}
+                                <div className="flex items-center text-gray-400 text-sm mt-2">
                                     <Clock size={16} className="mr-2" />
                                     <span>8+ years experience</span>
                                 </div>
@@ -118,7 +125,8 @@ const AboutMe = () => {
                         </div>
                     </div>
 
-                    {/* Gallery/Story Highlights Section */}                <div className="border-t border-gray-800">
+                    {/* Gallery/Story Highlights Section */}
+                    <div className="border-t border-gray-800">
                         <div
                             ref={scrollContainerRef}
                             className="w-full flex items-center gap-5 overflow-x-auto scrollbar-hide py-6 px-6"
@@ -134,7 +142,9 @@ const AboutMe = () => {
                                     onClick={() => {
                                         setSelectedImageIndex(index);
                                         setIsCardOpen(true);
-                                    }}                            >                                <div className="w-20 h-20 rounded-full overflow-hidden border border-gray-700">
+                                    }}
+                                >
+                                    <div className="w-20 h-20 rounded-full overflow-hidden border border-gray-700">
                                         <img
                                             src={image.src}
                                             alt={image.alt}
@@ -166,7 +176,8 @@ const AboutMe = () => {
                                 </motion.div>
                             ))}
                         </div>
-                    </div>            </div>
+                    </div>
+                </div>
             </motion.div>
 
             {/* Card component for image modal - rendered outside main component */}

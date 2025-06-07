@@ -21,7 +21,7 @@ const Navbar = () => {
     }, [location])
 
     return (
-        <nav className="flex justify-between md:justify-around items-center px-4 sm:px-6 md:px-10 relative z-20  bg-transparent text-white">
+        <nav className="flex justify-between md:justify-around items-center px-4 sm:px-6 relative z-20 mt-2 bg-transparent text-white">
             {/* This navbar will scroll with the page because it has no fixed positioning */}
             <div className="flex items-center">
                 <img

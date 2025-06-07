@@ -83,9 +83,9 @@ const Home = () => {
         }
     }; return (
         <div
-            className="w-full min-h-screen flex flex-col overflow-auto bg-cover bg-center"
+            className="max-w-full min-h-screen flex flex-col overflow-auto bg-cover bg-center bg-fixed"
             style={{
-                backgroundImage: "url('/images/bg-mae.png')"
+                backgroundImage: "url('/images/bg-mae.jpg')"
             }}
         >
             <Navbar />
@@ -104,7 +104,7 @@ const Home = () => {
                         CREATING MORE THAN JUST
                     </motion.h3>
                     <motion.h1
-                        className="font-secondary text-5xl sm:text-6xl md:text-8xl lg:text-[8rem] italic font-light tracking-wide m-0"
+                        className="secondary text-6xl sm:text-6xl md:text-8xl lg:text-[8rem] font-light tracking-wide m-0"
                         variants={memoriesVariants}
                         whileHover={{
                             scale: 1.05,

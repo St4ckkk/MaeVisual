@@ -1,18 +1,19 @@
-import { FaTwitter, FaInstagram, FaFacebookF } from "react-icons/fa"
+import { FaInstagram, FaFacebookF } from "react-icons/fa"
+import { FaTiktok } from "react-icons/fa6"
 import { motion } from "framer-motion"
 
 const SocialSidebar = () => {
     return (
         <>
-            {/* Desktop version */}
+
             <div className="fixed left-[2%] sm:left-[5%] md:left-[10%] top-0 h-full w-14 hidden sm:flex flex-col items-center justify-center z-10">
-                {/* Vertical Line */}
+
                 <div className="absolute left-1/2 top-0 bottom-[40%] w-[1px] bg-white"></div>
 
-                {/* Social Icons */}
+
                 <div className="flex flex-col space-y-6 mt-[300px]">
                     <a href="#" className="text-[#e9d5c5] hover:text-white transition-colors">
-                        <FaTwitter size={18} />
+                        <FaTiktok size={18} />
                     </a>
                     <a href="#" className="text-[#e9d5c5] hover:text-white transition-colors">
                         <FaInstagram size={18} />
@@ -57,7 +58,7 @@ const SocialSidebar = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.4 }}
                     >
-                        <FaTwitter size={18} className="text-white" />
+                        <FaTiktok size={18} className="text-white" />
                     </motion.a>
                 </div>
             </div>

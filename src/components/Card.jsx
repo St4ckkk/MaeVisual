@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
@@ -30,15 +31,17 @@ const Card = ({ isOpen, onClose, images, initialImageIndex = 0 }) => {
 
     const handlePrev = () => {
         setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
-    };    return (
+    };
+
+    return (
         <AnimatePresence>
             <motion.div
                 className="fixed inset-0 z-[9999] flex items-center justify-center bg-black"
-                style={{ 
-                    position: 'fixed', 
-                    top: 0, 
-                    left: 0, 
-                    right: 0, 
+                style={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    right: 0,
                     bottom: 0,
                     height: '100vh',
                     width: '100vw'
@@ -50,7 +53,8 @@ const Card = ({ isOpen, onClose, images, initialImageIndex = 0 }) => {
                 {/* Main content */}
                 <div className="relative w-full h-full flex flex-col md:flex-row">
                     {/* Image display - main area */}
-                    <div className="relative flex-1 flex items-center justify-center">                        {/* Close button */}
+                    <div className="relative flex-1 flex items-center justify-center">
+                        {/* Close button */}
                         <button
                             className="absolute top-2 sm:top-4 right-2 sm:right-4 z-10 p-1.5 sm:p-2 bg-black/40 backdrop-blur-sm rounded-full text-white hover:bg-black/60"
                             onClick={onClose}
@@ -69,7 +73,9 @@ const Card = ({ isOpen, onClose, images, initialImageIndex = 0 }) => {
                                     />
                                 </div>
                             </div>
-                        </div>                        {/* Main image */}
+                        </div>
+
+                        {/* Main image */}
                         <motion.img
                             key={currentImage.src}
                             src={currentImage.src}
@@ -78,7 +84,9 @@ const Card = ({ isOpen, onClose, images, initialImageIndex = 0 }) => {
                             initial={{ opacity: 0.5, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.3 }}
-                        />{/* Left/Right navigation arrows */}
+                        />
+
+                        {/* Left/Right navigation arrows */}
                         <button
                             className="absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 w-7 h-7 sm:w-10 sm:h-10 bg-black/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/50"
                             onClick={handlePrev}
@@ -91,7 +99,9 @@ const Card = ({ isOpen, onClose, images, initialImageIndex = 0 }) => {
                         >
                             <ChevronRight size={16} className="sm:w-6 sm:h-6" />
                         </button>
-                    </div>                    {/* Mobile thumbnails - horizontal scroll at bottom */}
+                    </div>
+
+                    {/* Mobile thumbnails - horizontal scroll at bottom */}
                     <div className="md:hidden flex overflow-x-auto gap-2 p-2 bg-black/70 w-full">
                         {images.map((image, index) => (
                             <div
