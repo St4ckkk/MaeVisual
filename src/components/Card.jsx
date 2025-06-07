@@ -43,13 +43,12 @@ const Card = ({ isOpen, onClose, images, initialImageIndex = 0 }) => {
                 {/* Main content */}
                 <div className="relative w-full h-full flex flex-col md:flex-row">
                     {/* Image display - main area */}
-                    <div className="relative flex-1 flex items-center justify-center">
-                        {/* Close button */}
+                    <div className="relative flex-1 flex items-center justify-center">                        {/* Close button */}
                         <button
-                            className="absolute top-2 sm:top-4 right-2 sm:right-4 z-10 p-1.5 sm:p-2 bg-black/40 rounded-full text-white hover:bg-black/60"
+                            className="absolute top-2 sm:top-4 right-2 sm:right-4 z-10 p-1.5 sm:p-2 bg-black/40 backdrop-blur-sm rounded-full text-white hover:bg-black/60"
                             onClick={onClose}
                         >
-                            <X size={20} className="sm:size-24" />
+                            <X size={16} className="sm:w-5 sm:h-5" />
                         </button>
 
                         {/* Top controls */}
@@ -63,35 +62,29 @@ const Card = ({ isOpen, onClose, images, initialImageIndex = 0 }) => {
                                     />
                                 </div>
                             </div>
-                        </div>
-
-                        {/* Main image */}
+                        </div>                        {/* Main image */}
                         <motion.img
                             key={currentImage.src}
                             src={currentImage.src}
                             alt={currentImage.alt || "Gallery image"}
-                            className="max-h-[80vh] max-w-[95vw] md:max-w-[80vw] object-contain"
+                            className="max-h-[85vh] max-w-[95vw] md:max-w-[80vw] object-contain rounded-sm md:rounded"
                             initial={{ opacity: 0.5, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.3 }}
-                        />
-
-                        {/* Left/Right navigation arrows */}
+                        />{/* Left/Right navigation arrows */}
                         <button
-                            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 bg-black/30 rounded-full flex items-center justify-center text-white hover:bg-black/50"
+                            className="absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 w-7 h-7 sm:w-10 sm:h-10 bg-black/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/50"
                             onClick={handlePrev}
                         >
-                            <ChevronLeft size={18} className="sm:size-24" />
+                            <ChevronLeft size={16} className="sm:w-6 sm:h-6" />
                         </button>
                         <button
-                            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 bg-black/30 rounded-full flex items-center justify-center text-white hover:bg-black/50"
+                            className="absolute right-1 sm:right-4 top-1/2 -translate-y-1/2 w-7 h-7 sm:w-10 sm:h-10 bg-black/30 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/50"
                             onClick={handleNext}
                         >
-                            <ChevronRight size={18} className="sm:size-24" />
+                            <ChevronRight size={16} className="sm:w-6 sm:h-6" />
                         </button>
-                    </div>
-
-                    {/* Mobile thumbnails - horizontal scroll at bottom */}
+                    </div>                    {/* Mobile thumbnails - horizontal scroll at bottom */}
                     <div className="md:hidden flex overflow-x-auto gap-2 p-2 bg-black/70 w-full">
                         {images.map((image, index) => (
                             <div
@@ -102,7 +95,7 @@ const Card = ({ isOpen, onClose, images, initialImageIndex = 0 }) => {
                                 <img
                                     src={image.src}
                                     alt={`Thumbnail ${index + 1}`}
-                                    className="h-14 w-14 object-cover"
+                                    className="h-12 w-12 object-cover rounded-sm"
                                 />
                             </div>
                         ))}

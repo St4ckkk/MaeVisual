@@ -2,7 +2,7 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css'
 import App from './App.jsx'
-import Services from './pages/Services.jsx';
+import MyWork from './pages/MyWork.jsx';
 import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
 
@@ -21,8 +21,8 @@ const router = createBrowserRouter([
         element: <About />
       },
       {
-        path: "services",
-        element: <Services />,
+        path: "my-work",
+        element: <MyWork />,
       }
     ]
   }

@@ -1,4 +1,5 @@
 import { FaTwitter, FaInstagram, FaFacebookF } from "react-icons/fa"
+import { motion } from "framer-motion"
 
 const SocialSidebar = () => {
     return (
@@ -22,17 +23,43 @@ const SocialSidebar = () => {
                 </div>
             </div>
 
-            {/* Mobile version - horizontal at middle-bottom */}
-            <div className="fixed bottom-[40%] left-0 right-0 flex sm:hidden justify-center items-center space-x-8 z-10">
-                <a href="#" className="text-[#e9d5c5] hover:text-white transition-colors p-2">
-                    <FaTwitter size={20} />
-                </a>
-                <a href="#" className="text-[#e9d5c5] hover:text-white transition-colors p-2">
-                    <FaInstagram size={20} />
-                </a>
-                <a href="#" className="text-[#e9d5c5] hover:text-white transition-colors p-2">
-                    <FaFacebookF size={20} />
-                </a>
+            {/* Mobile version - fixed at bottom */}
+            <div className="fixed bottom-24 left-0 right-0 sm:hidden z-20">
+                <div className="flex justify-center gap-4 py-3">
+                    <motion.a
+                        href="#"
+                        className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center shadow-lg"
+                        whileHover={{ scale: 1.1, backgroundColor: 'rgba(0,0,0,0.6)' }}
+                        whileTap={{ scale: 0.95 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                    >
+                        <FaFacebookF size={18} className="text-white" />
+                    </motion.a>
+                    <motion.a
+                        href="#"
+                        className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center shadow-lg"
+                        whileHover={{ scale: 1.1, backgroundColor: 'rgba(0,0,0,0.6)' }}
+                        whileTap={{ scale: 0.95 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3 }}
+                    >
+                        <FaInstagram size={18} className="text-white" />
+                    </motion.a>
+                    <motion.a
+                        href="#"
+                        className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center shadow-lg"
+                        whileHover={{ scale: 1.1, backgroundColor: 'rgba(0,0,0,0.6)' }}
+                        whileTap={{ scale: 0.95 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.4 }}
+                    >
+                        <FaTwitter size={18} className="text-white" />
+                    </motion.a>
+                </div>
             </div>
         </>
     )

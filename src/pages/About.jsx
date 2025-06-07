@@ -4,7 +4,7 @@ import Footer from "../components/Footer"
 const About = () => {
     return (
         <div
-            className="w-full max-h-screen overflow-auto bg-cover bg-center bg-fixed"
+            className="w-full min-h-screen overflow-auto bg-cover bg-center"
             style={{
                 backgroundImage: "url('/images/bg-mae.png')"
             }}

@@ -23,10 +23,6 @@ const AboutMe = () => {
         { src: "/images/h3.png", alt: "Event photography" },
         { src: "/images/h4.png", alt: "Birthday photography" },
         { src: "/images/h5.png", alt: "Graduation photography" }];
-    // No auto-scrolling effect, just manual scrolling
-    // We removed the useEffect that was handling infinite scrolling
-
-    // Animation variants
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -101,7 +97,7 @@ const AboutMe = () => {
 
                 {/* Profile Information */}
                 <div className="px-6 mb-8">
-                    <div className="md:block mt-6">
+                    <div className="md:block">
                         <motion.div variants={itemVariants}>                            <div className="text-lg font-medium">Mae Shara Mohammad</div>
                             <div className="text-gray-400 text-base">Freelance Photographer</div>
 
@@ -171,16 +167,7 @@ const AboutMe = () => {
                     </div>
                 </div>
 
-                {/* Styles */}
-                <style>{`
-                    .scrollbar-hide::-webkit-scrollbar {
-                        display: none;
-                    }
-                    .scrollbar-hide {
-                        -ms-overflow-style: none;
-                        scrollbar-width: none;
-                    }
-                `}</style>
+
             </div>
 
             {/* Card component for image modal */}
