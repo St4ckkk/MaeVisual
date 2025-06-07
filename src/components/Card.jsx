@@ -99,37 +99,33 @@ const Card = ({ isOpen, onClose, images, initialImageIndex = 0 }) => {
                         >
                             <ChevronRight size={16} className="sm:w-6 sm:h-6" />
                         </button>
-                    </div>
-
-                    {/* Mobile thumbnails - horizontal scroll at bottom */}
-                    <div className="md:hidden flex overflow-x-auto gap-2 p-2 bg-black/70 w-full">
+                    </div>                    {/* Mobile thumbnails - horizontal scroll at bottom */}
+                    <div className="md:hidden flex overflow-x-auto gap-2 p-2 bg-black/80 w-full">
                         {images.map((image, index) => (
                             <div
                                 key={index}
-                                className={`flex-shrink-0 cursor-pointer ${currentIndex === index ? 'ring-2 ring-blue-500' : ''}`}
+                                className={`flex-shrink-0 cursor-pointer transition-all duration-200 ${currentIndex === index ? 'ring-2 ring-white scale-105' : 'opacity-70'}`}
                                 onClick={() => setCurrentIndex(index)}
                             >
                                 <img
                                     src={image.src}
                                     alt={`Thumbnail ${index + 1}`}
-                                    className="h-12 w-12 object-cover rounded-sm"
+                                    className="h-14 w-14 object-cover rounded-sm"
                                 />
                             </div>
                         ))}
-                    </div>
-
-                    {/* Desktop Thumbnails sidebar */}
-                    <div className="hidden md:flex w-48 lg:w-64 flex-col gap-4 p-4 items-center justify-center overflow-y-auto bg-black/50">
+                    </div>{/* Desktop Thumbnails sidebar */}
+                    <div className="hidden md:flex w-48 lg:w-64 flex-col gap-2 p-4 items-center justify-center overflow-y-auto bg-black/80">
                         {images.map((image, index) => (
                             <div
                                 key={index}
-                                className={`relative cursor-pointer rounded-lg overflow-hidden w-full ${currentIndex === index ? 'ring-2 ring-blue-500' : ''}`}
+                                className={`relative cursor-pointer rounded-md overflow-hidden w-full transition-all duration-200 ${currentIndex === index ? 'ring-2 ring-white' : 'opacity-70 hover:opacity-100'}`}
                                 onClick={() => setCurrentIndex(index)}
                             >
                                 <img
                                     src={image.src}
                                     alt={`Thumbnail ${index + 1}`}
-                                    className="w-full h-24 lg:h-36 object-cover"
+                                    className="w-full h-20 lg:h-28 object-cover"
                                 />
                             </div>
                         ))}

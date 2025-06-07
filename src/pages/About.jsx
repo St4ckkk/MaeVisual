@@ -12,6 +12,7 @@ const About = () => {
         >
             <Navbar />
             <div className="w-full max-w-7xl mx-auto flex justify-center items-center">
+               
                 <Profile />
             </div>
             <Footer />

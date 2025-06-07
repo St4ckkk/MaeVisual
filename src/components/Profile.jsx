@@ -78,7 +78,12 @@ const AboutMe = () => {
                 initial="hidden"
                 animate="visible"
                 variants={containerVariants}
-            >                <div className="w-full max-w-3xl mx-auto">
+            >
+
+                <div className="w-full max-w-3xl mx-auto mt-7">
+                    <h1 className="secondary text-4xl md:text-5xl lg:text-6xl  ml-3 text-secondary">
+                        About Me
+                    </h1>
                     {/* Profile Header Section - Instagram Style */}
                     <div className="flex flex-col p-3 sm:p-4 md:p-6">{/* Profile and Bio section - responsive for all screen sizes */}
                         <div className="flex flex-row items-start">

@@ -75,53 +75,59 @@ const Work = () => {
     return (
         <>
             <motion.div
-                className="max-w-5xl mx-auto overflow-auto px-2 sm:px-4 py-6 sm:py-10 relative z-10"
+                className="max-w-3xl mx-auto overflow-auto px-2 sm:px-4 py-6 sm:py-10 relative z-10"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{
                     duration: 0.8,
                     ease: "easeInOut"
                 }}
-            >{/* Category Tabs */}                <motion.div ref={tabsContainerRef} className="flex flex-nowrap overflow-x-auto mb-4 sm:mb-6 md:mb-8 border-b border-gray-700 relative pb-1 px-1 sm:px-2 tabs-container scrollbar-hidden" style={{
-                msOverflowStyle: 'none', /* IE and Edge */
-                scrollbarWidth: 'none', /* Firefox */
-                WebkitOverflowScrolling: 'touch'
-            }}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                    duration: 0.5,
-                    type: "spring",
-                    stiffness: 100,
-                    damping: 15
+
+            > <h1 className="secondary text-4xl md:text-5xl lg:text-6xl mb-2 text-secondary">
+                    My Works
+                </h1>
+                {/* Category Tabs */}
+                <motion.div ref={tabsContainerRef} className="flex flex-nowrap overflow-x-auto mb-4 sm:mb-6 md:mb-8 border-b border-gray-700 relative pb-1 px-1 sm:px-2 tabs-container scrollbar-hidden" style={{
+                    msOverflowStyle: 'none', /* IE and Edge */
+                    scrollbarWidth: 'none', /* Firefox */
+                    WebkitOverflowScrolling: 'touch'
                 }}
-            >                    {categories.map((category) => (<motion.button
-                key={category.id}
-                onClick={() => setActiveTab(category.id)}
-                className="px-2 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-3 mx-0.5 sm:mx-1 text-xs sm:text-sm font-medium relative whitespace-nowrap"
-                variants={tabVariants}
-                initial="inactive"
-                animate={activeTab === category.id ? "active" : "inactive"}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                data-tab={category.id}
-            >
-                {category.label}
-                {activeTab === category.id && (
-                    <motion.div
-                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-white"
-                        layoutId="activeTab"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.3 }}
-                    />
-                )}
-            </motion.button>
-            ))}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                        duration: 0.5,
+                        type: "spring",
+                        stiffness: 100,
+                        damping: 15
+                    }}
+                >
+                    {categories.map((category) => (<motion.button
+                        key={category.id}
+                        onClick={() => setActiveTab(category.id)}
+                        className="px-2 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-3 mx-0.5 sm:mx-1 text-xs sm:text-sm font-medium relative whitespace-nowrap"
+                        variants={tabVariants}
+                        initial="inactive"
+                        animate={activeTab === category.id ? "active" : "inactive"}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        data-tab={category.id}
+                    >
+                        {category.label}
+                        {activeTab === category.id && (
+                            <motion.div
+                                className="absolute bottom-0 left-0 right-0 h-0.5 bg-white"
+                                layoutId="activeTab"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 0.3 }}
+                            />
+                        )}
+                    </motion.button>
+                    ))}
                 </motion.div>
                 {/* Photo Grid - Responsive columns and gaps based on screen size */}
                 <motion.div
-                    className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-1 sm:gap-2 md:gap-1 px-1 sm:px-0"
+                    className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 gap-1 sm:gap-2 md:gap-1 px-1 sm:px-0"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5 }}
@@ -159,8 +165,8 @@ const Work = () => {
                         </div>
                     </motion.div>
                     ))}
-                    </AnimatePresence>                
-                    </motion.div>            {/* Image Lightbox Card Component - Rendered outside the main layout to avoid z-index issues */}
+                    </AnimatePresence>
+                </motion.div>            {/* Image Lightbox Card Component - Rendered outside the main layout to avoid z-index issues */}
             </motion.div>
 
             {isModalOpen && (

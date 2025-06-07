@@ -5,6 +5,7 @@ import App from './App.jsx'
 import MyWork from './pages/MyWork.jsx';
 import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
+import Contact from './pages/Contact.jsx';
 
 
 const router = createBrowserRouter([
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "my-work",
         element: <MyWork />,
+      },
+      {
+        path: "contact",
+        element: <Contact/>
       }
     ]
   }
