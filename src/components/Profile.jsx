@@ -104,11 +104,18 @@ const AboutMe = () => {
                                 {/* Username and Action Buttons */}
                                 <div className="flex flex-row items-center justify-between mb-3">
                                     <h1 className="text-xl font-medium text-left">maenibini</h1>
-                                    <div className="flex flex-wrap gap-2">
-                                        <button className="bg-gray-800 text-white px-3 py-1 md:px-4 md:py-1.5 rounded-md text-xs md:text-sm font-medium">Book A Session</button>
-                                        <button className="bg-gray-800 text-white px-3 py-1 md:px-4 md:py-1.5 rounded-md text-xs md:text-sm font-medium">Contact Me</button>
+                                    <div className="flex-shrink-0 hidden sm:flex gap-2">
+                                        <button className="bg-gray-800 text-white px-3 py-1 md:px-4 md:py-1.5 rounded-md text-xs md:text-sm font-medium hover:bg-gray-700 transition-colors">Book A Session</button>
+                                        <button className="bg-gray-800 text-white px-3 py-1 md:px-4 md:py-1.5 rounded-md text-xs md:text-sm font-medium hover:bg-gray-700 transition-colors">Contact Me</button>
                                     </div>
                                 </div>
+
+                                {/* Mobile Action Buttons */}
+                                <div className="flex sm:hidden w-full gap-2 mb-3">
+                                    <button className="flex-1 bg-gray-800 text-white px-2 py-1.5 rounded-md text-xs font-medium hover:bg-gray-700 transition-colors">Book A Session</button>
+                                    <button className="flex-1 bg-gray-800 text-white px-2 py-1.5 rounded-md text-xs font-medium hover:bg-gray-700 transition-colors">Contact Me</button>
+                                </div>
+
                                 {/* Social links below profile pic on mobile */}
                                 <div className="md:hidden flex gap-2 mb-3">
                                     {socialLinks.map((social, index) => (
@@ -129,9 +136,6 @@ const AboutMe = () => {
                                 <div className="md:hidden text-sm">
                                     <div className="font-medium">Mae</div>
                                     <div className="text-gray-400">Freelance Photographer</div>
-                                    <div className="flex items-center mt-1">
-                                        <span>🧿 Memory Hoarder</span>
-                                    </div>
                                     <div className="flex items-center text-gray-400 text-xs mt-1">
                                         <MapPin size={14} className="mr-1" />
                                         <span>South Cotabato, PH</span>
@@ -139,6 +143,9 @@ const AboutMe = () => {
                                     <div className="flex items-center text-gray-400 text-xs mt-1">
                                         <Clock size={14} className="mr-1" />
                                         <span>8+ years experience</span>
+                                    </div>
+                                    <div className="flex items-center mt-1">
+                                        <span>🧿Memory Hoarder</span>
                                     </div>
                                     <div className="mt-1 text-xs">I TAKE PHOTOS AS A RETURN TICKET TO A MOMENT</div>
                                 </div>
@@ -168,9 +175,6 @@ const AboutMe = () => {
                                 <div className="hidden md:block mt-4 pt-0 text-sm">
                                     <div className="font-medium">Mae</div>
                                     <div className="text-gray-400">Freelance Photographer</div>
-                                    <div className="flex items-center mt-1">
-                                        <span>🧿 Memory Hoarder</span>
-                                    </div>
                                     <div className="flex items-center text-gray-400 text-xs mt-2">
                                         <MapPin size={14} className="mr-1" />
                                         <span>South Cotabato, PH</span>
@@ -178,6 +182,9 @@ const AboutMe = () => {
                                     <div className="flex items-center text-gray-400 text-xs mt-1">
                                         <Clock size={14} className="mr-1" />
                                         <span>8+ years experience</span>
+                                    </div>
+                                    <div className="flex items-center mt-1">
+                                        <span>🧿 Memory Hoarder</span>
                                     </div>
                                     <div className="mt-2 text-xs">I TAKE PHOTOS AS A RETURN TICKET TO A MOMENT</div>
                                 </div>
