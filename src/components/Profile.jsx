@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { Camera, Palette, Mountain, Edit2, Star } from 'lucide-react';
+import { Camera, Palette, Mountain, Edit2, Star, MoreHorizontal, MessageSquare } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Card from './Card';
 
@@ -7,7 +7,6 @@ const Profile = () => {
     const [isCardOpen, setIsCardOpen] = useState(false);
     const [selectedImageIndex, setSelectedImageIndex] = useState(0);
     const scrollContainerRef = useRef(null);
-    // const controls = useAnimation();
 
     const skills = [
         { name: "Portrait Photography", icon: Camera },
@@ -17,7 +16,6 @@ const Profile = () => {
         { name: "Video Editing", icon: Star },
     ];
 
-    // Enhanced portfolio images with week information
     const portfolioImages = [
         { src: "/images/h1.png", week: "68", alt: "Portfolio highlight 1" },
         { src: "/images/h2.png", week: "126", alt: "Portfolio highlight 2" },
@@ -26,7 +24,6 @@ const Profile = () => {
         { src: "/images/h5.png", week: "45", alt: "Portfolio highlight 5" }
     ];
 
-    // Auto-scrolling effect for the portfolio highlights
     useEffect(() => {
         const interval = setInterval(() => {
             if (scrollContainerRef.current) {
@@ -34,13 +31,11 @@ const Profile = () => {
                 const isAtEnd = container.scrollLeft + container.clientWidth >= container.scrollWidth - 20;
 
                 if (isAtEnd) {
-                    // Smoothly scroll back to the beginning
                     container.scrollTo({
                         left: 0,
                         behavior: 'smooth'
                     });
                 } else {
-                    // Continue scrolling right
                     container.scrollBy({
                         left: 60,
                         behavior: 'smooth'
@@ -89,21 +84,26 @@ const Profile = () => {
 
     return (
         <motion.div
-            className="flex justify-center items-center w-full px-4 sm:px-6 md:px-8"
+            className="w-full text-white"
             initial="hidden"
             animate="visible"
             variants={containerVariants}
         >
             <div className="w-full max-w-3xl mx-auto">
-                {/* Profile Header */}
-                <div className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-10 mb-8 md:mb-12">
+                {/* Instagram-style Header */}
+                <div className="flex items-center justify-between p-4 border-b border-gray-800">
+                    <h1 className="text-xl font-normal">maenibini</h1>
+                </div>
+
+                {/* Profile Header - Instagram Style */}
+                <div className="flex px-4 py-5">
                     {/* Profile Picture */}
                     <motion.div
-                        className="flex-shrink-0"
+                        className="flex-shrink-0 mr-8"
                         variants={itemVariants}
                     >
                         <motion.div
-                            className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-gray-700"
+                            className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-2 border-gray-700"
                             initial={{ scale: 0.8, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
                             transition={{ duration: 0.6 }}
@@ -111,173 +111,126 @@ const Profile = () => {
                             <img
                                 src="/images/profile.png"
                                 alt="Profile picture"
-                                width={192}
-                                height={192}
                                 className="w-full h-full object-cover"
                             />
                         </motion.div>
                     </motion.div>
 
-                    {/* Profile Info */}
-                    <div className="flex-1 text-center md:text-left">
-                        {/* Username and Actions */}
-                        <motion.div
-                            className="flex flex-col md:flex-row items-center gap-4 md:gap-6 mb-6 md:mb-8"
-                            variants={itemVariants}
-                        >
-                            <h1 className="text-2xl sm:text-3xl font-light">maenibini</h1>
-                            <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
-                                <motion.button
-                                    className="cursor-pointer bg-blue-500 hover:bg-blue-600 text-white px-5 sm:px-8 py-2 sm:py-2.5 rounded-lg text-sm sm:text-base font-semibold"
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                >
-                                    Follow me
-                                </motion.button>
-                                <motion.button
-                                    className="cursor-pointer bg-gray-700 hover:bg-gray-600 text-white px-5 sm:px-8 py-2 sm:py-2.5 rounded-lg text-sm sm:text-base font-semibold"
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                >
-                                    Hire me
-                                </motion.button>
-                            </div>
-                        </motion.div>
+                    {/* Stats */}
+                    <motion.div
+                        className="flex items-center justify-around flex-1"
+                        variants={itemVariants}
+                    >
+                        <div className="text-center">
+                            <div className="text-lg font-semibold">15+</div>
+                            <div className="text-xs text-gray-400">projects</div>
+                        </div>
+                        <div className="text-center">
+                            <div className="text-lg font-semibold">7</div>
+                            <div className="text-xs text-gray-400">years exp.</div>
+                        </div>
+                        <div className="text-center">
+                            <div className="text-lg font-semibold">100+</div>
+                            <div className="text-xs text-gray-400">clients</div>
+                        </div>
+                    </motion.div>
+                </div>
 
-                        {/* Stats - Changed to professional metrics */}
-                        <motion.div
-                            className="flex justify-center md:justify-start gap-6 sm:gap-12 mb-5 md:mb-6"
+                {/* Bio Section */}
+                <div className="px-4 pb-3">
+                    <motion.div
+                        className="mb-3"
+                        variants={itemVariants}
+                    >
+                        <div className="font-medium">Mae</div>
+                        <div className="text-gray-400 text-sm">Photographer</div>
+                        <div className="text-sm mt-1">🧿 Memory Hoarder</div>
+                    </motion.div>
+                    {/* Action Buttons */}
+                    <div className="flex gap-2 mb-4">
+                        <motion.button
+                            className="flex-1 bg-gray-800 text-white py-2 rounded-md text-sm font-semibold"
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
                             variants={itemVariants}
                         >
-                            <div className="text-center">
-                                <span className="text-lg sm:text-xl font-semibold">15+</span>
-                                <span className="text-gray-400 ml-1 sm:ml-2 text-base sm:text-lg">projects</span>
-                            </div>
-                            <div className="text-center">
-                                <span className="text-lg sm:text-xl font-semibold">7</span>
-                                <span className="text-gray-400 ml-1 sm:ml-2 text-base sm:text-lg">years exp.</span>
-                            </div>
-                            <div className="text-center">
-                                <span className="text-lg sm:text-xl font-semibold">100+</span>
-                                <span className="text-gray-400 ml-1 sm:ml-2 text-base sm:text-lg">clients</span>
-                            </div>
-                        </motion.div>
-
-                        {/* Bio */}
-                        <motion.div
-                            className="space-y-1 sm:space-y-2"
+                            Follow Me
+                        </motion.button>
+                        <motion.button
+                            className="flex-1 bg-gray-800 text-white py-2 rounded-md text-sm font-semibold"
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
                             variants={itemVariants}
                         >
-                            <div className="font-semibold text-lg sm:text-xl">Mae Shara Mohammad</div>
-                            <div className="text-gray-300 font-bold text-md sm:text-lg">Photographer</div>
-                            <div className="flex items-center justify-center md:justify-start gap-2">
-                                <span className="text-gray-300 text-sm sm:text-md">🧿 Memory Hoarder</span>
-                            </div>
-                        </motion.div>
-
-                        <motion.div
-                            className="mt-5 sm:mt-6"
-                            variants={itemVariants}
-                        >
-                            <h3 className="text-md sm:text-lg font-medium mb-2 sm:mb-3 text-gray-300">Skills</h3>
-                            <div className="flex flex-wrap gap-2 sm:gap-3 justify-center md:justify-start">
-                                {skills.map((skill, index) => (
-                                    <motion.div
-                                        key={index}
-                                        className="flex items-center gap-1 sm:gap-2 bg-gray-800 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium"
-                                        custom={index}
-                                        variants={skillVariants}
-                                        whileHover={{
-                                            scale: 1.05,
-                                            backgroundColor: "#1f2937"
-                                        }}
-                                    >
-                                        <skill.icon size={14} className="text-blue-400" />
-                                        <span>{skill.name}</span>
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </motion.div>
+                            Hire Me
+                        </motion.button>
                     </div>
                 </div>
 
-                {/* Portfolio Highlights - Enhanced with auto-scrolling */}
-                <div className="relative w-full mt-6 sm:mt-8 mb-4">
+                {/* Portfolio Highlights - Story Circles */}
+                <div className="border-t border-gray-800">
                     <div
                         ref={scrollContainerRef}
-                        className="w-full flex justify-start items-center gap-3 sm:gap-5 md:gap-8 overflow-x-auto scrollbar-hide pb-4 sm:pb-6 px-2"
+                        className="w-full flex items-center gap-4 overflow-x-auto scrollbar-hide py-4 px-4"
                         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                     >
-                        {/* Duplicate images at the beginning for seamless looping */}
                         {portfolioImages.map((image, index) => (
                             <motion.div
                                 key={index}
-                                className="flex-shrink-0"
+                                className="flex-shrink-0 flex flex-col items-center"
                                 custom={index}
                                 variants={portfolioVariants}
-                                whileHover={{
-                                    scale: 1.1,
-                                    transition: { duration: 0.2 }
-                                }}
+                                whileHover={{ scale: 1.05 }}
                                 onClick={() => {
                                     setSelectedImageIndex(index);
                                     setIsCardOpen(true);
                                 }}
                             >
-                                <div className="cursor-pointer w-14 h-14 xs:w-16 xs:h-16 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden border-2 border-gray-700 shadow-md hover:shadow-lg hover:border-gray-500 transition-all">
+                                <div className="w-16 h-16 rounded-full overflow-hidden border border-gray-700">
                                     <img
                                         src={image.src}
                                         alt={image.alt}
-                                        width={128}
-                                        height={128}
                                         className="w-full h-full object-cover"
                                         loading="lazy"
                                     />
                                 </div>
+                                <span className="text-xs mt-1 text-gray-400">Story {index + 1}</span>
                             </motion.div>
                         ))}
+                    </div>
+                </div>
 
-                        {/* Duplicate first few images to create illusion of infinity */}
-                        {portfolioImages.slice(0, 3).map((image, index) => (
+                {/* Skills Grid - Instagram Post Style */}
+                <div className="border-t border-gray-800 pt-2">
+                    <h3>My Skills</h3>
+                    <div className="grid grid-cols-3 gap-1">
+                        {skills.map((skill, index) => (
                             <motion.div
-                                key={`duplicate-${index}`}
-                                className="flex-shrink-0"
-                                custom={index + portfolioImages.length}
-                                variants={portfolioVariants}
-                                whileHover={{
-                                    scale: 1.1,
-                                    transition: { duration: 0.2 }
-                                }}
-                                onClick={() => {
-                                    setSelectedImageIndex(index);
-                                    setIsCardOpen(true);
-                                }}
+                                key={index}
+                                className="aspect-square bg-gray-900 flex items-center justify-center"
+                                custom={index}
+                                variants={skillVariants}
+                                whileHover={{ opacity: 0.8 }}
                             >
-                                <div className="cursor-pointer w-14 h-14 xs:w-16 xs:h-16 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden border-2 border-gray-700 shadow-md hover:shadow-lg hover:border-gray-500 transition-all">
-                                    <img
-                                        src={image.src}
-                                        alt={image.alt}
-                                        width={128}
-                                        height={128}
-                                        className="w-full h-full object-cover"
-                                        loading="lazy"
-                                    />
+                                <div className="flex flex-col items-center justify-center">
+                                    <skill.icon size={24} className="text-blue-400 mb-1" />
+                                    <span className="text-xs">{skill.name.split(" ")[0]}</span>
                                 </div>
                             </motion.div>
                         ))}
                     </div>
-
-                    {/* Add custom CSS to hide scrollbar */}
-                    <style>{`
-                        .scrollbar-hide::-webkit-scrollbar {
-                            display: none;
-                        }
-                        .scrollbar-hide {
-                            -ms-overflow-style: none;
-                            scrollbar-width: none;
-                        }
-                    `}</style>
                 </div>
+
+                {/* Styles */}
+                <style>{`
+                    .scrollbar-hide::-webkit-scrollbar {
+                        display: none;
+                    }
+                    .scrollbar-hide {
+                        -ms-overflow-style: none;
+                        scrollbar-width: none;
+                    }
+                `}</style>
             </div>
 
             {/* Card component for image modal */}
