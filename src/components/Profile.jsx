@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import { Camera, Image, Calendar, Instagram, Star, Award, MessageSquare, Aperture, Users, Gift, GraduationCap, Heart, MapPin, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Card from './Card';
@@ -22,31 +22,9 @@ const AboutMe = () => {
         { src: "/images/h2.png", alt: "Portrait photography" },
         { src: "/images/h3.png", alt: "Event photography" },
         { src: "/images/h4.png", alt: "Birthday photography" },
-        { src: "/images/h5.png", alt: "Graduation photography" }
-    ];
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            if (scrollContainerRef.current) {
-                const container = scrollContainerRef.current;
-                const isAtEnd = container.scrollLeft + container.clientWidth >= container.scrollWidth - 20;
-
-                if (isAtEnd) {
-                    container.scrollTo({
-                        left: 0,
-                        behavior: 'smooth'
-                    });
-                } else {
-                    container.scrollBy({
-                        left: 60,
-                        behavior: 'smooth'
-                    });
-                }
-            }
-        }, 3000);
-
-        return () => clearInterval(interval);
-    }, []);
+        { src: "/images/h5.png", alt: "Graduation photography" }];
+    // No auto-scrolling effect, just manual scrolling
+    // We removed the useEffect that was handling infinite scrolling
 
     // Animation variants
     const containerVariants = {
@@ -91,96 +69,63 @@ const AboutMe = () => {
             variants={containerVariants}
         >
             <div className="w-full max-w-3xl mx-auto">
-                {/* Header - Username and menu dots */}
-                <div className="flex items-center justify-between p-4">
-                    <h1 className="text-xl font-medium">maenibini</h1>
-                    <div className="flex gap-1">
-                        <div className="w-1 h-1 bg-white rounded-full"></div>
-                        <div className="w-1 h-1 bg-white rounded-full"></div>
-                        <div className="w-1 h-1 bg-white rounded-full"></div>
-                    </div>
-                </div>
-
-                {/* Profile Section */}
-                <div className="flex flex-col px-4">
-                    {/* Profile Picture and Action Buttons */}
-                    <div className="flex flex-col mb-4">
-                        {/* Profile Image */}
-                        <motion.div
-                            className="mb-3"
-                            variants={itemVariants}
-                        >
-                            <motion.div
-                                className="w-20 h-20 rounded-full overflow-hidden border border-gray-700"
-                                initial={{ scale: 0.8, opacity: 0 }}
-                                animate={{ scale: 1, opacity: 1 }}
-                                transition={{ duration: 0.6 }}
-                            >
-                                <img
-                                    src="/images/profile.png"
-                                    alt="Profile picture"
-                                    className="w-full h-full object-cover"
-                                />
-                            </motion.div>
-                        </motion.div>
-                        {/* Action Buttons */}
-                        <div className="flex w-full gap-2">
-                            <motion.button
-                                className="flex-1 bg-gray-800 text-white py-2 rounded-md text-sm font-semibold"
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                                variants={itemVariants}
-                            >
-                                <div className="flex items-center justify-center">
-                                    <Image size={14} className="mr-1" />
-                                    <span>My Works</span>
-                                </div>
-                            </motion.button>
-                            <motion.button
-                                className="flex-1 bg-gray-800 text-white py-2 rounded-md text-sm font-semibold"
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                                variants={itemVariants}
-                            >
-                                <div className="flex items-center justify-center">
-                                    <Calendar size={14} className="mr-1" />
-                                    <span>Book a Session</span>
-                                </div>
-                            </motion.button>
-                        </div>
-                    </div>
-
-                    {/* Bio Section */}
+                {/* Profile Image and Username Section */}
+                <div className="flex items-center p-6">
                     <motion.div
-                        className="mb-4"
+                        className="mr-6"
                         variants={itemVariants}
+                    ><motion.div
+                        className="w-35 h-35 rounded-full overflow-hidden border border-gray-700"
+                        initial={{ scale: 0.8, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ duration: 0.6 }}
                     >
-                        <div className="font-medium">Mae Shara Mohammad</div>
-                        <div className="text-gray-400 text-sm">Photographer</div>
-
-                        {/* Added experience */}
-                        <div className="flex items-center text-gray-400 text-sm mt-1">
-                            <Clock size={14} className="mr-1" />
-                            <span>8+ years experience</span>
-                        </div>
-
-                        {/* Added location */}
-                        <div className="flex items-center text-gray-400 text-sm mt-1">
-                            <MapPin size={14} className="mr-1" />
-                            <span>South Cotabato, PH</span>
-                        </div>
-
-                        <div className="text-sm mt-2">🧿 Memory Hoarder</div>
-                        <div className="text-sm mt-1">I TAKE PHOTOS AS A RETURN TICKET TO A MOMENT</div>
+                            <img
+                                src="/images/profile.png"
+                                alt="Profile picture"
+                                className="w-full h-full object-cover"
+                            />
+                        </motion.div>
                     </motion.div>
+                    <div className="flex flex-col flex-grow">
+                        <h1 className="text-2xl font-medium">maenibini</h1>                        <div className="flex mt-4 gap-2 md:gap-3">
+                            <button className="bg-gray-800 text-white px-3 py-1.5 md:px-5 md:py-2 rounded-md text-sm font-medium flex-1">
+                                My Works
+                            </button>
+                            <button className="bg-gray-800 text-white px-3 py-1.5 md:px-5 md:py-2 rounded-md text-sm font-medium flex-1">
+                                Book A Session
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
-                {/* Gallery Section */}
-                <div className="border-t border-gray-800">
+                {/* Profile Information */}
+                <div className="px-6 mb-8">
+                    <div className="md:block mt-6">
+                        <motion.div variants={itemVariants}>                            <div className="text-lg font-medium">Mae Shara Mohammad</div>
+                            <div className="text-gray-400 text-base">Freelance Photographer</div>
+
+                            {/* Experience and location */}                            <div className="flex items-center text-gray-400 text-sm mt-2">
+                                <Clock size={16} className="mr-2" />
+                                <span>8+ years experience</span>
+                            </div>
+                            <div className="flex items-center text-gray-400 text-sm mt-2">
+                                <MapPin size={16} className="mr-2" />
+                                <span>South Cotabato, PH</span>
+                            </div>
+                            <div className="flex items-center mt-2">
+                                <span className="text-base">🧿 Memory Hoarder</span>
+                            </div>
+                            <div className="text-sm mt-3 font-medium">I TAKE PHOTOS AS A RETURN TICKET TO A MOMENT</div>
+                        </motion.div>
+                    </div>
+                </div>
+
+                {/* Gallery/Story Highlights Section */}                <div className="border-t border-gray-800">
                     <div
                         ref={scrollContainerRef}
-                        className="w-full flex items-center gap-4 overflow-x-auto scrollbar-hide py-4 px-4"
-                        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                        className="w-full flex items-center gap-5 overflow-x-auto scrollbar-hide py-6 px-6"
+                        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', scrollBehavior: 'auto' }}
                     >
                         {galleryImages.map((image, index) => (
                             <motion.div
@@ -192,9 +137,7 @@ const AboutMe = () => {
                                 onClick={() => {
                                     setSelectedImageIndex(index);
                                     setIsCardOpen(true);
-                                }}
-                            >
-                                <div className="w-16 h-16 rounded-full overflow-hidden border border-gray-700">
+                                }}                            >                                <div className="w-20 h-20 rounded-full overflow-hidden border border-gray-700">
                                     <img
                                         src={image.src}
                                         alt={image.alt}
@@ -202,7 +145,6 @@ const AboutMe = () => {
                                         loading="lazy"
                                     />
                                 </div>
-                                <span className="text-xs mt-1 text-gray-400">{image.title}</span>
                             </motion.div>
                         ))}
                     </div>
