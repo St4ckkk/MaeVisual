@@ -76,18 +76,16 @@ const AboutMe = () => {
                 initial="hidden"
                 animate="visible"
                 variants={containerVariants}
-            >
-                <div className="w-full max-w-3xl mx-auto">
+            >                <div className="w-full max-w-3xl mx-auto">
                     {/* Profile Header Section - Instagram Style */}
-                    <div className="flex flex-col p-6">
-                        {/* Profile and Bio section for mobile */}
+                    <div className="flex flex-col p-3 sm:p-4 md:p-6">{/* Profile and Bio section - responsive for all screen sizes */}
                         <div className="flex flex-row items-start">
                             <motion.div
-                                className="mb-4 mr-4 flex-shrink-0"
+                                className="mb-4 mr-3 sm:mr-4 flex-shrink-0"
                                 variants={itemVariants}
                             >
                                 <motion.div
-                                    className="w-24 h-24 md:w-36 md:h-36 rounded-full overflow-hidden border border-gray-700 mx-0"
+                                    className="w-20 h-20 sm:w-24 sm:h-24 md:w-36 md:h-36 rounded-full overflow-hidden border border-gray-700 mx-0"
                                     initial={{ scale: 0.8, opacity: 0 }}
                                     animate={{ scale: 1, opacity: 1 }}
                                     transition={{ duration: 0.6 }}
@@ -101,59 +99,51 @@ const AboutMe = () => {
                             </motion.div>
 
                             <div className="flex flex-col flex-grow">
-                                {/* Username and Action Buttons */}
-                                <div className="flex flex-row items-center justify-between mb-3">
-                                    <h1 className="text-xl font-medium text-left">maenibini</h1>
+                                {/* Username and Action Buttons */}                                <div className="flex flex-row items-center justify-between mb-2 sm:mb-3">
+                                    <h1 className="text-lg sm:text-xl font-medium text-left">maenibini</h1>
                                     <div className="flex-shrink-0 hidden sm:flex gap-2">
                                         <button className="bg-gray-800 text-white px-3 py-1 md:px-4 md:py-1.5 rounded-md text-xs md:text-sm font-medium hover:bg-gray-700 transition-colors">Book A Session</button>
                                         <button className="bg-gray-800 text-white px-3 py-1 md:px-4 md:py-1.5 rounded-md text-xs md:text-sm font-medium hover:bg-gray-700 transition-colors">Contact Me</button>
                                     </div>
-                                </div>
-
-                                {/* Mobile Action Buttons */}
-                                <div className="flex sm:hidden w-full gap-2 mb-3">
-                                    <button className="flex-1 bg-gray-800 text-white px-2 py-1.5 rounded-md text-xs font-medium hover:bg-gray-700 transition-colors">Book A Session</button>
-                                    <button className="flex-1 bg-gray-800 text-white px-2 py-1.5 rounded-md text-xs font-medium hover:bg-gray-700 transition-colors">Contact Me</button>
-                                </div>
-
-                                {/* Social links below profile pic on mobile */}
-                                <div className="md:hidden flex  mb-3 rounded-lg">
+                                </div>                                {/* Mobile Action Buttons */}
+                                <div className="flex sm:hidden w-full gap-2 mb-2">
+                                    <button className="flex-1 bg-gray-800 text-white px-2 py-1.5 rounded-md text-[11px] xs:text-xs font-medium hover:bg-gray-700 transition-colors">Book A Session</button>
+                                    <button className="flex-1 bg-gray-800 text-white px-2 py-1.5 rounded-md text-[11px] xs:text-xs font-medium hover:bg-gray-700 transition-colors">Contact Me</button>
+                                </div>{/* Social links below profile pic on mobile */}
+                                <div className="md:hidden flex flex-wrap gap-2 mb-3 rounded-lg">
                                     {socialLinks.map((social, index) => (
                                         <a
                                             key={index}
                                             href={social.url}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex items-center gap-1 hover:opacity-80 transition-opacity px-2 py-1 rounded-md"
+                                            className="flex items-center gap-1 hover:opacity-80 transition-opacity px-2 py-1 rounded-md bg-gray-800/50"
                                         >
                                             <social.icon size={16} className="text-white" />
                                             <span className="text-xs text-gray-200">{social.username}</span>
                                         </a>
                                     ))}
-                                </div>
-
-                                {/* Bio Section for Mobile */}
+                                </div>                                {/* Bio Section for Mobile */}
                                 <div className="md:hidden text-sm">
                                     <div className="font-medium">Mae</div>
                                     <div className="text-gray-400">Freelance Photographer</div>
                                     <div className="flex items-center text-gray-400 text-xs mt-1">
-                                        <MapPin size={14} className="mr-1" />
+                                        <MapPin size={12} className="mr-1" />
                                         <span>South Cotabato, PH</span>
                                     </div>
                                     <div className="flex items-center text-gray-400 text-xs mt-1">
-                                        <Clock size={14} className="mr-1" />
+                                        <Clock size={12} className="mr-1" />
                                         <span>8+ years experience</span>
                                     </div>
                                     <div className="flex items-center mt-1">
-                                        <span>🧿Memory Hoarder</span>
+                                        <span>🧿 Memory Hoarder</span>
                                     </div>
                                     <div className="mt-1 text-xs">I TAKE PHOTOS AS A RETURN TICKET TO A MOMENT</div>
                                 </div>
 
 
 
-                                {/* Social links for desktop view */}
-                                <div className="hidden md:flex justify-start gap-8 py-4 border-b border-gray-800">
+                                {/* Social links for desktop view */}                                <div className="hidden md:flex flex-wrap justify-start gap-4 lg:gap-8 py-3 lg:py-4 border-b border-gray-800">
                                     {socialLinks.map((social, index) => (
                                         <a
                                             key={index}
@@ -190,13 +180,11 @@ const AboutMe = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    {/* Gallery/Story Highlights Section */}
+                    </div>                    {/* Gallery/Story Highlights Section */}
                     <div className="border-t border-gray-800">
                         <div
                             ref={scrollContainerRef}
-                            className="w-full flex items-center gap-5 overflow-x-auto scrollbar-hide py-6 px-6"
+                            className="w-full flex items-center gap-3 sm:gap-4 md:gap-5 overflow-x-auto scrollbar-hide py-4 sm:py-6 px-3 sm:px-6"
                             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', scrollBehavior: 'auto' }}
                         >
                             {galleryImages.map((image, index) => (
@@ -210,8 +198,7 @@ const AboutMe = () => {
                                         setSelectedImageIndex(index);
                                         setIsCardOpen(true);
                                     }}
-                                >
-                                    <div className="w-20 h-20 rounded-full overflow-hidden border border-gray-700">
+                                >                                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border border-gray-700">
                                         <img
                                             src={image.src}
                                             alt={image.alt}
@@ -222,12 +209,10 @@ const AboutMe = () => {
                                 </motion.div>
                             ))}
                         </div>
-                    </div>
-
-                    {/* Photography Specialties Grid */}
-                    <div className="border-t border-gray-800 p-5">
+                    </div>                    {/* Photography Specialties Grid */}
+                    <div className="border-t border-gray-800 p-3 sm:p-4 md:p-5">
                         <h3 className="py-2 text-sm font-medium">My Specialties</h3>
-                        <div className="grid grid-cols-3 gap-1">
+                        <div className="grid grid-cols-3 sm:grid-cols-3 gap-1 sm:gap-2">
                             {interests.map((interest, index) => (
                                 <motion.div
                                     key={index}
@@ -235,10 +220,9 @@ const AboutMe = () => {
                                     custom={index}
                                     variants={interestVariants}
                                     whileHover={{ opacity: 0.8 }}
-                                >
-                                    <div className="flex flex-col items-center justify-center">
-                                        <interest.icon size={24} className="text-blue-400 mb-1" />
-                                        <span className="text-xs">{interest.name}</span>
+                                >                                <div className="flex flex-col items-center justify-center">
+                                        <interest.icon size={16} className="text-blue-400 mb-1 sm:size-20 md:size-24" />
+                                        <span className="text-[10px] sm:text-xs">{interest.name}</span>
                                     </div>
                                 </motion.div>
                             ))}
