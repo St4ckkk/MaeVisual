@@ -1,0 +1,41 @@
+{
+  "categories": [
+    { "id": "all", "label": "All" },
+    { "id": "wedding", "label": "Weddings" },
+    { "id": "birthday", "label": "Birthdays" },
+    { "id": "portrait", "label": "Portraits" },
+    { "id": "graduation", "label": "Graduations" },
+    { "id": "memorial", "label": "Memorials" },
+    { "id": "debut", "label": "Debuts" },
+    { "id": "event", "label": "Events" },
+    { "id": "prenup", "label": "Prenup" },
+    { "id": "christening", "label": "Christening" }
+  ],
+  "portfolioItems": [
+    { "id": 1, "category": "wedding", "image": "/images/wedding.jpg", "views": 1378, "alt": "Wedding photography" },
+    { "id": 2, "category": "event", "image": "/images/h2.png", "views": 959, "alt": "Event venue photography" },
+    { "id": 3, "category": "portrait", "image": "/images/h3.png", "views": 601, "alt": "Landscape portrait" },
+    { "id": 4, "category": "birthday", "image": "/images/birthday.jpg", "views": 1364, "alt": "Birthday celebration" },
+    { "id": 5, "category": "graduation", "image": "/images/h5.png", "views": 782, "alt": "Graduation ceremony" },
+    { "id": 6, "category": "debut", "image": "/images/debut.jpg", "views": 825, "alt": "Debut photography" },
+    { "id": 7, "category": "memorial", "image": "/images/h4.png", "views": 543, "alt": "Memorial photography" },
+    { "id": 8, "category": "wedding", "image": "/images/wedding/w1.jpg", "views": 1205, "alt": "Wedding ceremony" },
+    { "id": 9, "category": "prenup", "image": "/images/prenup.jpg", "views": 1420, "alt": "Pre-nup session photography" },
+    { "id": 10, "category": "prenup", "image": "/images/prenup/pr1.jpg", "views": 980, "alt": "Pre-nup outdoor session" },
+    { "id": 11, "category": "christening", "image": "/images/christening/c1.jpg", "views": 865, "alt": "Christening ceremony" },
+    { "id": 12, "category": "portrait", "image": "/images/portrait/p1.jpg", "views": 723, "alt": "Professional portrait" },
+    { "id": 13, "category": "portrait", "image": "/images/portrait/p2.jpg", "views": 650, "alt": "Studio portrait" },
+    { "id": 14, "category": "portrait", "image": "/images/portrait/p3.jpg", "views": 528, "alt": "Outdoor portrait" },
+    { "id": 15, "category": "wedding", "image": "/images/wedding/w2.jpg", "views": 1150, "alt": "Wedding couple photography" },
+    { "id": 16, "category": "wedding", "image": "/images/wedding/w3.jpg", "views": 975, "alt": "Wedding reception" },
+    { "id": 17, "category": "graduation", "image": "/images/graduation/g1.jpg", "views": 845, "alt": "Graduation portrait" },
+    { "id": 18, "category": "graduation", "image": "/images/graduation/g2.jpg", "views": 790, "alt": "Graduation celebration" },
+    { "id": 19, "category": "birthday", "image": "/images/bday/b1.jpg", "views": 1280, "alt": "Birthday party" },
+    { "id": 20, "category": "birthday", "image": "/images/bday/b3.jpg", "views": 1120, "alt": "Birthday celebration with family" },
+    { "id": 21, "category": "debut", "image": "/images/debut/d1.jpg", "views": 915, "alt": "Debut portrait" },
+    { "id": 22, "category": "debut", "image": "/images/debut/d2.jpg", "views": 880, "alt": "Debut celebration" },
+    { "id": 23, "category": "event", "image": "/images/event/e1.jpg", "views": 905, "alt": "Corporate event" },
+    { "id": 24, "category": "event", "image": "/images/event/e2.jpg", "views": 840, "alt": "Special event photography" },
+    { "id": 25, "category": "portrait", "image": "/images/portrait/p4.jpg", "views": 720, "alt": "Creative portrait" }
+  ]
+}

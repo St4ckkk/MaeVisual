@@ -15,6 +15,8 @@ const AboutMe = () => {
         { name: "Weddings", icon: Heart },
         { name: "Birthdays", icon: Gift },
         { name: "Portraits", icon: Users },
+        { name: "Prenup", icon: Users },
+        { name: "Debut", icon: Gift },
         { name: "Graduations", icon: GraduationCap },
         { name: "Memorials", icon: Star },
         { name: "Events", icon: Calendar },
@@ -209,7 +211,8 @@ const AboutMe = () => {
                                 </motion.div>
                             ))}
                         </div>
-                    </div>                    {/* Photography Specialties Grid */}
+                    </div>
+                    {/* Photography Specialties Grid */}
                     <div className="border-t border-gray-800 p-3 sm:p-4 md:p-5">
                         <h3 className="py-2 text-sm font-medium">My Specialties</h3>
                         <div className="grid grid-cols-3 sm:grid-cols-3 gap-1 sm:gap-2">
@@ -220,8 +223,9 @@ const AboutMe = () => {
                                     custom={index}
                                     variants={interestVariants}
                                     whileHover={{ opacity: 0.8 }}
-                                >                                <div className="flex flex-col items-center justify-center">
-                                        <interest.icon size={16} className="text-blue-400 mb-1 sm:size-20 md:size-24" />
+                                >
+                                    <div className="flex flex-col items-center justify-center">
+                                        <interest.icon size={16} className="text-blue-400 mb-1 sm:size-20 md:size-5" />
                                         <span className="text-[10px] sm:text-xs">{interest.name}</span>
                                     </div>
                                 </motion.div>
