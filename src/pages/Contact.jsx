@@ -213,7 +213,7 @@ const Contact = () => {
                                             value={formData.name}
                                             onChange={handleChange}
                                             required
-                                            className="w-full bg-gray-800/50 border border-gray-700 rounded-md px-3 py-2 text-white focus:outline-none focus:border-[#e9d5c5] focus:ring-1 focus:ring-[#e9d5c5] text-sm"
+                                            className="w-full bg-gray-800/50 border border-gray-700 rounded-md px-3 py-2 text-white focus:outline-none focus:border-secondary focus:ring-1 focus:ring-[#e9d5c5] text-sm"
                                             placeholder="Your name"
                                         />
                                     </div>
@@ -226,7 +226,7 @@ const Contact = () => {
                                             value={formData.email}
                                             onChange={handleChange}
                                             required
-                                            className="w-full bg-gray-800/50 border border-gray-700 rounded-md px-3 py-2 text-white focus:outline-none focus:border-[#e9d5c5] focus:ring-1 focus:ring-[#e9d5c5] text-sm"
+                                            className="w-full bg-gray-800/50 border border-gray-700 rounded-md px-3 py-2 text-white focus:outline-none focus:border-secondary focus:ring-1 focus:ring-[#e9d5c5] text-sm"
                                             placeholder="Your email"
                                         />
                                     </div>
@@ -293,7 +293,7 @@ const Contact = () => {
                                 <motion.button
                                     type="submit"
                                     disabled={isSubmitting}
-                                    className="w-full bg-[#e9d5c5] text-primary font-medium py-2.5 rounded-md hover:bg-[#d6c1b0] transition-colors flex items-center justify-center"
+                                    className="w-full bg-secondary text-primary font-medium py-2.5 rounded-md hover:bg-[#d6c1b0] transition-colors flex items-center justify-center"
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                 >
