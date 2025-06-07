@@ -1,7 +1,6 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Work from "../components/Work";
-import SocialSidebar from "../components/SocialSidebar";
 
 const MyWork = () => {
 
@@ -15,7 +14,7 @@ const MyWork = () => {
         >
             <Navbar />
             <Work />
-            <SocialSidebar />
+
             <Footer />
         </div>
     );
