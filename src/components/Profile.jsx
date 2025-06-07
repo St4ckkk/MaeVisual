@@ -117,17 +117,17 @@ const AboutMe = () => {
                                 </div>
 
                                 {/* Social links below profile pic on mobile */}
-                                <div className="md:hidden flex gap-2 mb-3">
+                                <div className="md:hidden flex  mb-3 rounded-lg">
                                     {socialLinks.map((social, index) => (
                                         <a
                                             key={index}
                                             href={social.url}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex items-center gap-1 hover:opacity-80 transition-opacity"
+                                            className="flex items-center gap-1 hover:opacity-80 transition-opacity px-2 py-1 rounded-md"
                                         >
                                             <social.icon size={16} className="text-white" />
-                                            <span className="text-xs text-gray-400">{social.username}</span>
+                                            <span className="text-xs text-gray-200">{social.username}</span>
                                         </a>
                                     ))}
                                 </div>
