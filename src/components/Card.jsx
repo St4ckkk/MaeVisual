@@ -30,12 +30,19 @@ const Card = ({ isOpen, onClose, images, initialImageIndex = 0 }) => {
 
     const handlePrev = () => {
         setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
-    };
-
-    return (
+    };    return (
         <AnimatePresence>
             <motion.div
-                className="fixed inset-0 z-50 flex items-center justify-center bg-black/90"
+                className="fixed inset-0 z-[9999] flex items-center justify-center bg-black"
+                style={{ 
+                    position: 'fixed', 
+                    top: 0, 
+                    left: 0, 
+                    right: 0, 
+                    bottom: 0,
+                    height: '100vh',
+                    width: '100vw'
+                }}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
