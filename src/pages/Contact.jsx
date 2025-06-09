@@ -1,12 +1,14 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { motion } from "framer-motion"
 import { FaInstagram, FaFacebookF } from "react-icons/fa"
 import { FaTiktok } from "react-icons/fa6"
 import { Mail, Phone, MapPin, Send, Camera } from "lucide-react"
+import emailjs from '@emailjs/browser'
 import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 
 const Contact = () => {
+    const form = useRef();
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -40,12 +42,19 @@ const Contact = () => {
         e.preventDefault()
         setIsSubmitting(true)
 
-        // Simulate form submission with a delay
         try {
-            // In a real app, you would send the form data to your server here
-            await new Promise(resolve => setTimeout(resolve, 1500))
+
+            document.querySelector('input[name="user_email"]').value = formData.email
+
+
+            await emailjs.sendForm(
+                import.meta.env.VITE_SERVICE_ID,
+                import.meta.env.VITE_TEMPLATE_ID,
+                form.current,
+                import.meta.env.VITE_PUBLIC_KEY
+            )
             setSubmitStatus("success")
-            // Reset form after successful submission
+
             setFormData({
                 name: "",
                 email: "",
@@ -54,7 +63,8 @@ const Contact = () => {
                 message: "",
                 eventType: ""
             })
-        } catch {
+        } catch (error) {
+            console.error('Error sending email:', error)
             setSubmitStatus("error")
         } finally {
             setIsSubmitting(false)
@@ -200,13 +210,16 @@ const Contact = () => {
                             className="md:col-span-2 bg-black/20 backdrop-blur-sm p-6 rounded-lg"
                             variants={itemVariants}
                         >
-                            <h3 className="text-xl mb-4 font-medium text-secondary">Send Me a Message</h3>
-
-                            <form onSubmit={handleSubmit} className="space-y-4">
+                            <h3 className="text-xl mb-4 font-medium text-secondary">Send Me a Message</h3>                            <form ref={form} onSubmit={handleSubmit} className="space-y-4">
+                                {/* Hidden recipient email - this is YOUR email that will receive the form */}
+                                <input
+                                    type="hidden"
+                                    name="user_email"
+                                    value={formData.email}
+                                />
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <div>
-                                        <label htmlFor="name" className="block text-sm text-gray-400 mb-1">Name</label>
-                                        <input
+                                        <label htmlFor="name" className="block text-sm text-gray-400 mb-1">Name</label><input
                                             type="text"
                                             id="name"
                                             name="name"
@@ -218,8 +231,7 @@ const Contact = () => {
                                         />
                                     </div>
                                     <div>
-                                        <label htmlFor="email" className="block text-sm text-gray-400 mb-1">Email</label>
-                                        <input
+                                        <label htmlFor="email" className="block text-sm text-gray-400 mb-1">Email</label>                                        <input
                                             type="email"
                                             id="email"
                                             name="email"
@@ -234,8 +246,7 @@ const Contact = () => {
 
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <div>
-                                        <label htmlFor="phone" className="block text-sm text-gray-400 mb-1">Phone Number</label>
-                                        <input
+                                        <label htmlFor="phone" className="block text-sm text-gray-400 mb-1">Phone Number</label>                                        <input
                                             type="tel"
                                             id="phone"
                                             name="phone"
@@ -246,8 +257,7 @@ const Contact = () => {
                                         />
                                     </div>
                                     <div>
-                                        <label htmlFor="eventType" className="block text-sm text-gray-400 mb-1">Photography Type</label>
-                                        <select
+                                        <label htmlFor="eventType" className="block text-sm text-gray-400 mb-1">Event Type</label>                                        <select
                                             id="eventType"
                                             name="eventType"
                                             value={formData.eventType}
@@ -311,9 +321,7 @@ const Contact = () => {
                                             Send Message
                                         </span>
                                     )}
-                                </motion.button>
-
-                                {/* Form submission status message */}
+                                </motion.button>                                {/* Form submission status message */}
                                 {submitStatus === "success" && (
                                     <motion.div
                                         className="bg-green-800/40 border border-green-800 text-white px-4 py-2 rounded-md text-sm"
@@ -321,7 +329,7 @@ const Contact = () => {
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: -10 }}
                                     >
-                                        Message sent successfully! I&apos;ll get back to you soon.
+                                        Thank you! Your message has been sent to Mae. She will get back to you soon.
                                     </motion.div>
                                 )}
 
